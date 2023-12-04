@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class EntradaSaida{
     public static Scanner entradaUser = new Scanner(System.in);
+    
 
     public static int menuInicial(){
         //String[] opcoes = {"1 - Login Usuário","2 - Cadastrar Usuário","3 - Login Admin","4 - Sair"}; 
@@ -32,10 +33,10 @@ public class EntradaSaida{
         int entrada = entradaCinco.nextInt();
         return entrada;
     }
-    public static String alterarSenhaAdmin(String msg){
+     public static String solicitarInformacoesDesconto(String msg){
         System.out.println("Digite "+msg);
-        Scanner entradaTres = new Scanner(System.in);
-        String entrada = entradaTres.nextLine();
+        Scanner entradaSeis = new Scanner(System.in);
+        String entrada = entradaSeis.nextLine();
         return entrada;
     }
 }
