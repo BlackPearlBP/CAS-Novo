@@ -38,5 +38,14 @@ public class EntradaSaida{
         Scanner entradaSeis = new Scanner(System.in);
         String entrada = entradaSeis.nextLine();
         return entrada;
+    }        
+    public static int verificarSaida() {
+        System.out.println("Deseja sair? \n[1] Sim  [0] Não");
+        Scanner entradaSete = new Scanner(System.in);
+        int sair = entradaSete.nextInt();
+        return sair;
     }
+	public static void mostrarAlerta(String msg) {
+        System.out.println(msg);
+	}  
 }
