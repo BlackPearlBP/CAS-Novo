@@ -1,6 +1,8 @@
+
 public class MenuDesconto {
     
     public void descontosCadastrados(){
+        
         Usuarios listaDescontos = new Usuarios();
         
         Desconto d = new Desconto();

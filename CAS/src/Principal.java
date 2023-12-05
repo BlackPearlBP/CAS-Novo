@@ -10,6 +10,7 @@ public class Principal {
         String senha="";
         Admin a=new Admin();
         
+        
         do{
             if(alterado ==false){
                 a.usuario="admin";
@@ -19,20 +20,19 @@ public class Principal {
             switch (opcaoTelaLogin) {
                 case 1:
                     // entrar como usuario->tela inicial
-                    
                     usuario=EntradaSaida.solicitarDados("o usuario");
                     senha=EntradaSaida.solicitarDados("a senha");
                     existente=l.verificarUsuario(usuario,senha,existente);
+                    
                     if(existente==true){
+                        Usuarios u= new Usuarios();
                         double salarioBruto = EntradaSaida.solicitarSalarioBruto();
-                        do{
-                            Usuarios u = new Usuarios();
-                            String texto=u.selecionarDescontos();
-                            boolean recebe=EntradaSaida.recebeDesconto();
-                            selecaoConcluida=EntradaSaida.verificarSaida();
-                        }while(selecaoConcluida!=1);
-                       
-                    }
+                        if(u.verificaLista()==true){
+                            boolean selecionar= u.selecionarDesconto();
+                        }
+                        }else{
+                            EntradaSaida.mostrarAlerta("Nenhum desconto para selecionar! ");
+                        }
                 break;
                 case 2:
                     Usuarios u = new Usuarios();
