@@ -1,54 +1,47 @@
 public class Principal {
     public static void main(String[] args) {
         ListaUsuarios l=new ListaUsuarios();
-        boolean existente=false;
-        boolean alterado = false;
-        int selecaoConcluida = 0;
-        int opcaoAdmin = 0;
-        int opcaoTelaLogin = 0;
+        boolean usuarioExistente=false;
+        boolean loginAlterado = false;
+        int selecaoDeDescontosConcluida = 0;
+        int opcaoMenuAdmin = 0;
+        int opcaoTelaLoginUsuario = 0;
         String usuario="";
         String senha="";
         Admin a=new Admin();
         
         
         do{
-            if(alterado ==false){
+            if(loginAlterado ==false){
                 a.usuario="admin";
                 a.senha="admin";
             }
-            opcaoTelaLogin = EntradaSaida.menuInicial();
-            switch (opcaoTelaLogin) {
+            opcaoTelaLoginUsuario = EntradaSaida.menuInicial();
+            switch (opcaoTelaLoginUsuario) {
                 case 1:
                     // entrar como usuario->tela inicial
                     usuario=EntradaSaida.solicitarDados("o usuario");
                     senha=EntradaSaida.solicitarDados("a senha");
-                    existente=l.verificarUsuario(usuario,senha,existente);
-                    
-                    if(existente==true){
-                        Usuarios u= new Usuarios();
-                        double salarioBruto = EntradaSaida.solicitarSalarioBruto();
-                        if(u.verificaLista()==true){
-                            boolean selecionar= u.selecionarDesconto();
-                        }
-                        }else{
-                            EntradaSaida.mostrarAlerta("Nenhum desconto para selecionar! ");
-                        }
+                    usuarioExistente=l.verificarUsuario(usuario,senha,usuarioExistente);
+                    if(usuarioExistente==true){
+                        
+                    }
                 break;
                 case 2:
-                    Usuarios u = new Usuarios();
+                    //cadastrar novo usuario
+                    Usuario u = new Usuario();
                     u.usuario=EntradaSaida.cadastrarDadosUsuario("o usuario");
                     u.senha=EntradaSaida.cadastrarDadosUsuario("a senha");
                     l.adicionarUsuario(u);
-                    //cadastrar novo usuario
                 break;
                 case 3:
                     usuario=EntradaSaida.solicitarDados("o usuario");
                     senha=EntradaSaida.solicitarDados("a senha");
-                    existente=a.verificarAdmin(usuario,senha);
-                    if(existente!=false){
+                    usuarioExistente=a.verificarAdmin(usuario,senha);
+                    if(usuarioExistente!=false){
                         do{
-                            opcaoAdmin=EntradaSaida.menuAdmin();
-                            switch(opcaoAdmin){
+                            opcaoMenuAdmin=EntradaSaida.menuAdmin();
+                            switch(opcaoMenuAdmin){
                                 case 1:
                                 //alterar descontos
                                     break;
@@ -57,12 +50,12 @@ public class Principal {
                                     String novaSenha=EntradaSaida.solicitarDados("a nova senha");
                                     a.usuario=novoUsuario;
                                     a.senha=novaSenha;
-                                    alterado=true;                                      
+                                    loginAlterado=true;                                      
                         }
-                        }while(opcaoAdmin!=3);
+                        }while(opcaoMenuAdmin!=3);
                     }
                         break;
             }
-        }while(opcaoTelaLogin!=4);
+        }while(opcaoTelaLoginUsuario!=4);
     }
 }
