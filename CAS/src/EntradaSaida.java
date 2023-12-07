@@ -47,5 +47,26 @@ public class EntradaSaida{
     }
 	public static void mostrarAlerta(String msg) {
         System.out.println(msg);
-	}  
+	}
+    public static int menuTelaUsuario() {
+        System.out.println("Escolha uma opção:\n[1] Calcular Salario\n[2] Voltar");
+        Scanner entradaOito = new Scanner(System.in);
+        int entrada = entradaOito.nextInt();
+        return entrada;
+    }
+    public static boolean recebeValeTransporte(){
+        System.out.println("Recebe Vale-Transporte?\n[1]-Sim \n[2]-Não");
+        Scanner entradaTres = new Scanner(System.in);
+        int entrada = entradaTres.nextInt();
+        do{
+            if(entrada==1){
+                return true;
+            }else{        
+                return false; 
+            }
+        }while(entrada!=2 && entrada!=1);
+}
+    public static void mostrarSalarioLiquido(double salarioLiquido) {
+        System.out.println("O salário líquido a receber é: R$"+salarioLiquido); 
+    }
 }
