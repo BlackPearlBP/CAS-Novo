@@ -19,15 +19,15 @@ public class Usuario {
         for(Desconto d : ld.descontosCadastrados){
             if(!d.nome.equals("VT")&&d.ehDescontado==true){
                 somaDesconto+=d.valor;
-                System.out.println(d.nome);
-                System.out.println(d.descricao);
-                System.out.println("R$"+d.valor*salarioBruto);
+                System.out.println("        " + d.nome);
+                System.out.println("        " + d.descricao);
+                System.out.println("        R$" + d.valor*salarioBruto);
             }
             if(d.nome.equals("VT")&&d.ehDescontado){
                 somaDesconto+=d.valor;
                 System.out.println(d.nome);
                 System.out.println(d.descricao);
-                System.out.println("R$"+d.valor*salarioBruto);
+                System.out.println("        R$"+d.valor*salarioBruto);
             }
         } 
         System.out.println(somaDesconto);   

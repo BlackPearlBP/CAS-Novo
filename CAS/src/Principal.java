@@ -28,7 +28,7 @@ public class Principal {
                     if(usuarioExistente){
                         for(Usuario u : l.listaDeUsuarios){
                             if(u.usuario.equals(usuario)){
-                                System.out.println("Bem-vindo, "+u.usuario+"!");
+                                System.out.println("        Bem-vindo, "+u.usuario+"!");
                             do{
                                 opcaoMenuUsuario=EntradaSaida.menuTelaUsuario();
                                 switch(opcaoMenuUsuario){
