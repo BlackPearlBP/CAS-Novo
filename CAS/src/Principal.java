@@ -36,15 +36,10 @@ public class Principal {
                                     u.salarioBruto=EntradaSaida.solicitarSalarioBruto();                                    
                                     ld.setarDescontoInss();
                                     ld.setarDescontoIrpf();
-                                    ld.setarDesconto();
-                                    ld.setarDescontosInss();
-                                    ld.setarDescontosInss();
-                                    ld.mostra();
-                                    salarioLiquido=u.somarDesconto(u.salarioBruto);
+                                    ld.setarDescontoFgts();
+                                    ld.setarDescontoVt();
+                                    salarioLiquido=ld.somarDesconto(u.salarioBruto);
                                     EntradaSaida.mostrarSalarioLiquido(salarioLiquido);
-                                    
-                                //setar descontos
-                                //devolver salario liquido
                                     break;                                   
                         }
                         }while(opcaoMenuUsuario!=2);
@@ -64,52 +59,31 @@ public class Principal {
                     senha=EntradaSaida.solicitarDados("a senha");
                     usuarioExistente=a.verificarAdmin(usuario,senha);
                     if(usuarioExistente){
+                        String nomeDescontoString="";
                         do{
                             opcaoMenuAdmin=EntradaSaida.menuAdmin();
                             switch(opcaoMenuAdmin){
                                 case 1:
-                                //Excluir usuarios
-                                    break;
+                                //Alterar descontos
+                                EntradaSaida.mostrarAlerta(ld.mostrarDescontos());
+                                nomeDescontoString=EntradaSaida.solicitarDados("o nome do desconto a ser alterado");
+                                ld.alterarValorDesconto(nomeDescontoString);
+                                break;
                                 case 2:
                                     String novoUsuario=EntradaSaida.solicitarDados("o novo usuario");
                                     String novaSenha=EntradaSaida.solicitarDados("a nova senha");
                                     a.usuario=novoUsuario;
                                     a.senha=novaSenha;
-                                    loginAlterado=true;                                      
+                                    loginAlterado=true;      
+                                break;
+                                case 3:
+                                //Excluir usuarios
+                                break;
                         }
-                        }while(opcaoMenuAdmin!=3);
+                        }while(opcaoMenuAdmin!=4);
                     }
                         break;
             }
         }while(opcaoTelaLoginUsuario!=4);
     }
 }
-/*
- * ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⢯⢣⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣯⢿⡀⠟⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⢯⣻⣇⠈⢻⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣜⣻⢿⠀⢛⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⢮⡹⣿⡀⠢⢁⡃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⢎⡷⣻⣇⠘⠨⠗⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⡯⣗⣻⣽⠀⠡⢼⢄⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡦⣻⠯⠟⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢿⠼⣭⣿⡔⢁⠂⡽⠀⠀⠀⠀⠀⠀⣰⠞⣯⣵⠾⠃⢌⡞⠀⠀⠀⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢀⣀⠀⡀⡀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡻⣴⢻⣇⠢⢉⡟⠀⠀⠀⢠⡖⠫⣧⣞⠗⠡⠐⡈⠇⠀⠀⠀⠀⠀⠀⠄⡼⢧⡀⠀⠀⠀⠀⠀⠀
-⠀⠘⠿⣯⣭⣋⠋⠣⠳⠶⢖⣤⣠⡀⡀⠀⢻⣲⡟⣯⠐⠂⣭⠀⢠⡼⢃⡴⣿⠟⠠⠈⡄⡏⠁⠀⠀⠀⠀⠀⠀⡀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠈⠺⣭⢳⣵⡦⢔⡂⠄⡉⠛⠧⠶⣤⡀⡈⢣⢟⣻⡌⡐⢱⣴⠞⣰⣯⢿⠁⡄⢃⡶⠁⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠛⢦⣏⢟⡾⣍⣖⡭⣘⡤⢈⡙⠳⡜⣯⠞⣧⠴⠸⢃⣾⠟⡁⠄⣂⠼⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠶⢭⣶⡹⣓⢾⣣⣤⢣⣤⣋⢿⣹⢀⢢⣘⢁⠂⠼⢧⣔⣢⣴⣶⣦⣖⣶⡤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣉⡶⠽⠖⢯⢖⡹⢮⣛⡎⡆⢡⣞⠾⡛⡃⢋⢉⡉⠡⢠⡠⠖⠈⠀⠀⠀⠀⠀⠀⠀⠀⣠⡞⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠶⢊⣆⣠⣐⣤⡾⣴⢲⡹⢧⣻⢧⣬⣍⡠⢲⢥⠥⠝⠊⠂⡇⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢾⣿⡇⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠤⠾⠻⠷⠻⠿⠟⢫⠹⠪⠵⢫⢫⣶⣿⠏⢷⡉⠻⡽⣶⣻⣇⣄⠀⠀⢘⢷⣄⠀⠀⠀⠀⠀⠀⠀⣴⢋⣼⣿⡃⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⣫⡾⠟⠁⠀⠘⣥⠀⠀⠉⠚⠈⠃⠛⠂⠈⣎⢳⣷⠄⠀⠀⠀⢀⡾⢁⣼⣿⡏⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠛⠉⠀⠀⠀⠀⠀⢳⢂⠀⠀⠀⠀⠀⠀⠀⠀⢘⡤⠻⣿⢥⠀⠀⡾⢀⣾⢿⡻⠁⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢫⢆⠀⠀⠀⠀⠀⠀⠀⠀⠰⡅⠹⣯⣇⢰⠃⣼⡿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠐⠒⡟⡕⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢲⢳⠀⠀⠀⠀⠙⡗⢳⣶⡌⢢⠛⣥⡏⣼⢻⠋⠀⣴⣴⣶⣶⣶⢰⣤⡄⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠀⢠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠐⠪⠊⡽⠻⣦⢒⣴⢿⣛⣛⡼⢯⣥⣖⣒⣮⡾⠿⠟⠋
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣯⡶⢯⣿⣽⣈⣓⠻⡓⠊⠂⠉⠉⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀420⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⠸⣷⡟⠻⢳⣮⣵⣄⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡜⠁⠀⠀⠈⠹⠀⠀⠀⠀⠉⠁⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ass: Gaba$$tarbucK$⠀⠀⠀⠀
- */
