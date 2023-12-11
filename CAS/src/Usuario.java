@@ -5,7 +5,7 @@ public class Usuario {
     public String senha;
     public String usuario;
     public double salarioBruto;
-    public Desconto descontos;
+
     ArrayList<Desconto> descontosUsuarios=new ArrayList<Desconto>();
 
     public void adicionarDesconto(Desconto d) {
@@ -30,8 +30,7 @@ public class Usuario {
                 System.out.println("        R$"+d.valor*salarioBruto);
             }
         } 
-        System.out.println(somaDesconto);   
-        System.out.println(salarioBruto);   
+        
         System.out.println((salarioBruto*somaDesconto));   
         return salarioBruto-(salarioBruto*somaDesconto);
     }

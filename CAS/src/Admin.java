@@ -14,7 +14,7 @@ public class Admin {
         }
     }       
         public static int menuAdmin() {
-        System.out.println("        Escolha uma opção:\n1- Alterar descontos\n2- Alterar login administrador\n3- Voltar");
+        System.out.println("        Escolha uma opção:\n        [1] - Alterar descontos\n        [2] - Alterar login administrador\n        [3] - Voltar");
         Scanner entradaAdmin = new Scanner(System.in);
         int entrada = entradaAdmin.nextInt();
         return entrada;

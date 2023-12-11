@@ -34,10 +34,12 @@ public class Principal {
                                 switch(opcaoMenuUsuario){
                                     case 1:
                                     u.salarioBruto=EntradaSaida.solicitarSalarioBruto();                                    
-                                    ld.setarDescontos();
+                                    ld.setarDescontoInss();
+                                    ld.setarDescontoIrpf();
+                                    ld.setarDesconto();
+                                    ld.setarDescontosInss();
+                                    ld.setarDescontosInss();
                                     ld.mostra();
-                                    System.out.println(u.senha);
-                                    System.out.println(u.salarioBruto);
                                     salarioLiquido=u.somarDesconto(u.salarioBruto);
                                     EntradaSaida.mostrarSalarioLiquido(salarioLiquido);
                                     
