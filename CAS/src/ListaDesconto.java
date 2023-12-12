@@ -41,7 +41,7 @@ public class ListaDesconto {
     public void setarDescontoVt() {
         Desconto d = new Desconto();
         d.nome = "VT";
-        d.descricao = "Saiba mais: O vale-transporte é um benefício opcional que visa subsidiar parcialmente os custos de deslocamento do trabalhador entre sua residência e local de trabalho, promovendo a acessibilidade e mobilidade urbana.";
+        d.descricao = "Saiba mais: O vale-transporte é um benefício opcional que visa subsidiar parcialmente os custos de deslocamento do trabalhador entre sua residência e local de trabalho, promovendo a acessibilidade e mobilidade urbana.\nFonte: www.pontotel.com.br/vale-alimentacao/";
         d.valor = 0.08;
         d.ehDescontado = EntradaSaida.recebeValeTransporte();
         adicionarDesconto(d);
