@@ -40,7 +40,7 @@ public class EntradaSaida{
         return entrada;
     }        
     public static int verificarSaida() {
-        System.out.println("        Deseja sair? \n     [1] Sim        [0] Não");
+        System.out.println("        Deseja sair? \n     [1] - Sim        [0] - Não");
         Scanner entradaSete = new Scanner(System.in);
         int sair = entradaSete.nextInt();
         return sair;
@@ -49,13 +49,13 @@ public class EntradaSaida{
         System.out.println(msg);
 	}
     public static int menuTelaUsuario() {
-        System.out.println("        Escolha uma opção:\n        [1] Calcular Salario\n        [2] Voltar");
+        System.out.println("        Escolha uma opção:\n        [1] - Calcular Salario\n        [2] - Voltar");
         Scanner entradaOito = new Scanner(System.in);
         int entrada = entradaOito.nextInt();
         return entrada;
     }
     public static boolean recebeValeTransporte(){
-        System.out.println("        Recebe Vale-Transporte?\n       [1]-Sim \n     [2]-Não");
+        System.out.println("        Recebe Vale-Transporte?\n        [1] - Sim \n        [2] - Não");
         Scanner entradaNove = new Scanner(System.in);
         int entrada = entradaNove.nextInt();
         do{
