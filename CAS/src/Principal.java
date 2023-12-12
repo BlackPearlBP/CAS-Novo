@@ -65,7 +65,9 @@ public class Principal {
                             switch(opcaoMenuAdmin){
                                 case 1:
                                 //Alterar descontos
-                                EntradaSaida.mostrarAlerta(ld.mostrarDescontos());
+                                
+                                String mostrarDescontosString = ld.mostrarDescontos();
+                                EntradaSaida.mostrarAlerta(mostrarDescontosString);
                                 nomeDescontoString=EntradaSaida.solicitarDados("o nome do desconto a ser alterado");
                                 ld.alterarValorDesconto(nomeDescontoString);
                                 break;

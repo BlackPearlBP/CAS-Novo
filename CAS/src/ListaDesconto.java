@@ -69,21 +69,27 @@ public class ListaDesconto {
     }
 
     public void alterarValorDesconto(String nomeDescontoString) {
+        System.out.println("entrou");
+        String msg="";
         for (Desconto d : this.descontosCadastrados) {
-            if (nomeDescontoString.equals(d.nome)) {
+            if (d.nome.equals(nomeDescontoString)) {
                 d.valor = EntradaSaida.solicitarValorDesconto();
-                System.out.println("Alterado!");
+                msg="Alterado!";
+                break;
             } else {
-                System.out.println("Não foi possivel alterar");
+                msg="Não foi possivel alterar";
             }
+           EntradaSaida.mostrarAlerta(msg);
         }
 
     }
 
     public String mostrarDescontos() {
+        System.out.println("entrou");
         String mostrarTodosDescontos="";
         for (Desconto d : this.descontosCadastrados) {
                 mostrarTodosDescontos+="        Nome: " + d.nome+"\n"+"        Descrição: " + d.descricao+"\n        Valor: " + d.valor;
+                mostrarTodosDescontos+= "toma";
         }
         return mostrarTodosDescontos;
     }
