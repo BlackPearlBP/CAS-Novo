@@ -13,7 +13,7 @@ public class ListaDesconto {
 
         Desconto d = new Desconto();
         d.nome = "FGTS";
-        d.descricao = "Fundo de garantia de tempo de serviço";
+        d.descricao = "Saiba mais: O desconto do FGTS, ou Fundo de Garantia do Tempo de Serviço, é uma contribuição obrigatória do empregador que visa proteger o trabalhador, oferecendo recursos para situações específicas, como demissão sem justa causa e compra da casa própria.\nFonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx";
         d.valor = 0.08;
         d.ehDescontado = true;
         adicionarDesconto(d);
@@ -22,7 +22,7 @@ public class ListaDesconto {
     public void setarDescontoIrpf() {
         Desconto d = new Desconto();
         d.nome = "IRRF";
-        d.descricao = "Imposto de Renda Retido na Fonte";
+        d.descricao = "Saiba mais: O desconto do IRRF, ou Imposto de Renda Retido na Fonte, é uma dedução obrigatória sobre rendimentos, sendo recolhido diretamente na fonte pagadora, contribuindo para financiar as despesas governamentais.\nFonte: www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/tributos/IRRF";
         d.valor = 0.08;
         d.ehDescontado = true;
         adicionarDesconto(d);
@@ -31,7 +31,8 @@ public class ListaDesconto {
     public void setarDescontoInss() {
         Desconto d = new Desconto();
         d.nome = "INSS";
-        d.descricao = "Instituto Nacional do Seguro Nacional";
+        d.descricao = "Saiba mais: O desconto do INSS, ou Instituto Nacional do Seguro Social, é uma contribuição obrigatória descontada dos salários para financiar a previdência social, garantindo benefícios como aposentadoria, pensão e auxílio-doença.\nFonte: www.gov.br/inss/pt-br/saiba-mais\")\r\n" + //
+                "   escreval()";
         d.valor = 0.09;
         d.ehDescontado = true;
         adicionarDesconto(d);
@@ -40,7 +41,7 @@ public class ListaDesconto {
     public void setarDescontoVt() {
         Desconto d = new Desconto();
         d.nome = "VT";
-        d.descricao = "Vale Transporte";
+        d.descricao = "Saiba mais: O vale-transporte é um benefício opcional que visa subsidiar parcialmente os custos de deslocamento do trabalhador entre sua residência e local de trabalho, promovendo a acessibilidade e mobilidade urbana.";
         d.valor = 0.08;
         d.ehDescontado = EntradaSaida.recebeValeTransporte();
         adicionarDesconto(d);
