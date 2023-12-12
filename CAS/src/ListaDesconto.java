@@ -31,8 +31,7 @@ public class ListaDesconto {
     public void setarDescontoInss() {
         Desconto d = new Desconto();
         d.nome = "INSS";
-        d.descricao = "Saiba mais: O desconto do INSS, ou Instituto Nacional do Seguro Social, é uma contribuição obrigatória descontada dos salários para financiar a previdência social, garantindo benefícios como aposentadoria, pensão e auxílio-doença.\nFonte: www.gov.br/inss/pt-br/saiba-mais\")\r\n" + //
-                "   escreval()";
+        d.descricao = "Saiba mais: O desconto do INSS, ou Instituto Nacional do Seguro Social, é uma contribuição obrigatória descontada dos salários para financiar a previdência social, garantindo benefícios como aposentadoria, pensão e auxílio-doença.\nFonte: www.gov.br/inss/pt-br/saiba-mais";
         d.valor = 0.09;
         d.ehDescontado = true;
         adicionarDesconto(d);
