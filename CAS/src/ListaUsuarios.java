@@ -20,4 +20,7 @@ public class ListaUsuarios {
         }
         return usuarioExistente;
     }
+    public void removerUsuarios(Usuario u){
+        this.listaDeUsuarios.remove(u);
+    }
 }
