@@ -1,3 +1,6 @@
+import java.util.Iterator;
+import java.util.ListIterator;
+
 public class Principal {
     public static void main(String[] args) {
         ListaUsuarios l=new ListaUsuarios();
@@ -5,6 +8,7 @@ public class Principal {
         boolean usuarioExistente=false;
         boolean loginAlterado = false;
         int opcaoMenuAdmin = 0;
+        int opcaoExclusao = 0;
         int opcaoMenuUsuario = 0;
         int opcaoTelaLoginUsuario = 0;
         String usuario="";
@@ -34,8 +38,8 @@ public class Principal {
                                 switch(opcaoMenuUsuario){
                                     case 1:
                                     u.salarioBruto=EntradaSaida.solicitarSalarioBruto();                                    
-                                    ld.setarDescontoInss();
-                                    ld.setarDescontoIrpf();
+                                    ld.setarDescontoInss(u.salarioBruto);
+                                    ld.setarDescontoIrpf(u.salarioBruto);
                                     ld.setarDescontoFgts();
                                     ld.setarDescontoVt();
                                     salarioLiquido=ld.somarDesconto(u.salarioBruto);
@@ -80,8 +84,19 @@ public class Principal {
                                 break;
                                 case 3:
                                 //Excluir usuarios
+                                do{
+                                    opcaoExclusao=EntradaSaida.verificarExclusao();
+                                    switch(opcaoExclusao){
+                                        case 1:
+                                        for(Usuario us : l.listaDeUsuarios){    
+                                            l.removerUsuarios(us);
+                                        }
+                                        EntradaSaida.mostrarAlerta("Usuários excluídos!");
+                                        break;
+                                }
+                                }while(opcaoExclusao!=2);
                                 break;
-                        }
+                            }
                         }while(opcaoMenuAdmin!=4);
                     }
                         break;
