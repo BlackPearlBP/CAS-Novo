@@ -15,6 +15,11 @@ public class Principal {
         String senha="";
         double salarioLiquido=0;
         Admin a=new Admin();
+        ld.setarDescontoInss();
+        ld.setarDescontoIrpf();
+        ld.setarDescontoFgts();
+        ld.setarDescontoVt();
+        
         
         
         do{
@@ -37,11 +42,8 @@ public class Principal {
                                 opcaoMenuUsuario=EntradaSaida.menuTelaUsuario();
                                 switch(opcaoMenuUsuario){
                                     case 1:
-                                    u.salarioBruto=EntradaSaida.solicitarSalarioBruto();                                    
-                                    ld.setarDescontoInss(u.salarioBruto);
-                                    ld.setarDescontoIrpf(u.salarioBruto);
-                                    ld.setarDescontoFgts();
-                                    ld.setarDescontoVt();
+                                    u.salarioBruto=EntradaSaida.solicitarSalarioBruto();  
+                                    ld.setarValoresDesconto(u.salarioBruto);                             
                                     salarioLiquido=ld.somarDesconto(u.salarioBruto);
                                     EntradaSaida.mostrarSalarioLiquido(salarioLiquido);
                                     break;                                   
@@ -59,6 +61,7 @@ public class Principal {
                     l.adicionarUsuario(u);
                 break;
                 case 3:
+                    //Login Admin
                     usuario=EntradaSaida.solicitarDados("o usuario");
                     senha=EntradaSaida.solicitarDados("a senha");
                     usuarioExistente=a.verificarAdmin(usuario,senha);
