@@ -3,8 +3,8 @@ import java.util.ListIterator;
 
 public class Principal {
     public static void main(String[] args) {
-        ListaUsuarios l=new ListaUsuarios();
-        ListaDesconto ld=new ListaDesconto();
+        ListaUsuarios listaUsuarios =new ListaUsuarios();
+        ListaDesconto listaDesconto = new ListaDesconto(); //ld
         boolean usuarioExistente=false;
         boolean loginAlterado = false;
         int opcaoMenuAdmin = 0;
@@ -14,13 +14,13 @@ public class Principal {
         String usuario="";
         String senha="";
         double salarioLiquido=0;
-        Admin a=new Admin();
+        Admin admin = new Admin();
         
         
         do{
             if(loginAlterado==false){
-                a.usuario="admin";
-                a.senha="admin";
+                admin.usuario="admin";
+                admin.senha="admin";
             }
             opcaoTelaLoginUsuario = EntradaSaida.menuInicial();
             switch (opcaoTelaLoginUsuario) {
@@ -28,9 +28,9 @@ public class Principal {
                     // entrar como usuario->tela inicial
                     usuario=EntradaSaida.solicitarDados("o usuario");
                     senha=EntradaSaida.solicitarDados("a senha");
-                    usuarioExistente=l.verificarUsuario(usuario,senha,usuarioExistente);
+                    usuarioExistente=listaUsuarios.verificarUsuario(usuario,senha,usuarioExistente);
                     if(usuarioExistente){
-                        for(Usuario u : l.listaDeUsuarios){
+                        for(Usuario u : listaUsuarios.listaDeUsuarios){
                             if(u.usuario.equals(usuario)){
                                 System.out.println("        Bem-vindo, "+u.usuario+"!");
                             do{
@@ -38,11 +38,11 @@ public class Principal {
                                 switch(opcaoMenuUsuario){
                                     case 1:
                                     u.salarioBruto=EntradaSaida.solicitarSalarioBruto();                                    
-                                    ld.setarDescontoInss(u.salarioBruto);
-                                    ld.setarDescontoIrpf(u.salarioBruto);
-                                    ld.setarDescontoFgts();
-                                    ld.setarDescontoVt();
-                                    salarioLiquido=ld.somarDesconto(u.salarioBruto);
+                                    listaDesconto.setarDescontoInss(u.salarioBruto);
+                                    listaDesconto.setarDescontoIrpf(u.salarioBruto);
+                                    listaDesconto.setarDescontoFgts();
+                                    listaDesconto.setarDescontoVt();
+                                    salarioLiquido=listaDesconto.somarDesconto(u.salarioBruto);
                                     EntradaSaida.mostrarSalarioLiquido(salarioLiquido);
                                     break;                                   
                         }
@@ -56,12 +56,12 @@ public class Principal {
                     Usuario u = new Usuario();
                     u.usuario=EntradaSaida.cadastrarDadosUsuario("o usuario");
                     u.senha=EntradaSaida.cadastrarDadosUsuario("a senha");
-                    l.adicionarUsuario(u);
+                    listaUsuarios.adicionarUsuario(u);
                 break;
                 case 3:
                     usuario=EntradaSaida.solicitarDados("o usuario");
                     senha=EntradaSaida.solicitarDados("a senha");
-                    usuarioExistente=a.verificarAdmin(usuario,senha);
+                    usuarioExistente=admin.verificarAdmin(usuario,senha);
                     if(usuarioExistente){
                         String nomeDescontoString="";
                         do{
@@ -70,16 +70,16 @@ public class Principal {
                                 case 1:
                                 //Alterar descontos
                                 
-                                String mostrarDescontosString = ld.mostrarDescontos();
+                                String mostrarDescontosString = listaDesconto.mostrarDescontos();
                                 EntradaSaida.mostrarAlerta(mostrarDescontosString);
                                 nomeDescontoString=EntradaSaida.solicitarDados("o nome do desconto a ser alterado");
-                                ld.alterarValorDesconto(nomeDescontoString);
+                                listaDesconto.alterarValorDesconto(nomeDescontoString);
                                 break;
                                 case 2:
                                     String novoUsuario=EntradaSaida.solicitarDados("o novo usuario");
                                     String novaSenha=EntradaSaida.solicitarDados("a nova senha");
-                                    a.usuario=novoUsuario;
-                                    a.senha=novaSenha;
+                                    admin.usuario=novoUsuario;
+                                    admin.senha=novaSenha;
                                     loginAlterado=true;      
                                 break;
                                 case 3:
@@ -88,8 +88,8 @@ public class Principal {
                                     opcaoExclusao=EntradaSaida.verificarExclusao();
                                     switch(opcaoExclusao){
                                         case 1:
-                                        for(Usuario us : l.listaDeUsuarios){    
-                                            l.removerUsuarios(us);
+                                        for(Usuario us : listaUsuarios.listaDeUsuarios){    
+                                            listaUsuarios.removerUsuarios(us);
                                         }
                                         EntradaSaida.mostrarAlerta("Usuários excluídos!");
                                         break;
