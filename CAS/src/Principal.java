@@ -75,8 +75,10 @@ public class Principal {
                                 
                                 String mostrarDescontosString = listaDesconto.mostrarDescontos();
                                 EntradaSaida.mostrarAlerta(mostrarDescontosString);
+
                                 nomeDescontoString=EntradaSaida.solicitarDados("o nome do desconto a ser alterado");
-                                listaDesconto.alterarValorDesconto(nomeDescontoString);
+
+                                EntradaSaida.mostrarAlerta(listaDesconto.alterarValorDesconto(nomeDescontoString));
                                 break;
                                 case 2:
                                     String novoUsuario=EntradaSaida.solicitarDados("o novo usuario");

@@ -38,7 +38,7 @@ public class ListaDesconto {
         descontos.nome = "VT";
         descontos.descricao = "Saiba mais: O vale-transporte é um benefício opcional que visa subsidiar parcialmente os custos de deslocamento do trabalhador entre sua residência e local de trabalho, promovendo a acessibilidade e mobilidade urbana.\nFonte: www.pontotel.com.br/vale-alimentacao/";
         descontos.valor = 0.08;
-        descontos.ehDescontado = EntradaSaida.recebeValeTransporte();
+        descontos.ehDescontado = false;
         adicionarDesconto(descontos);
     }
 
@@ -65,24 +65,22 @@ public class ListaDesconto {
         return salarioBruto - (salarioBruto * somaDesconto);
     }
 
-    public void alterarValorDesconto(String nomeDescontoString) {
-        String msg="Não foi possivel alterar";
+    public String alterarValorDesconto(String nomeDescontoString) {
+        String msg="Nome não encontrado!";
         for (Desconto descontos : this.descontosCadastrados) {
             if (descontos.nome.equals(nomeDescontoString)) {
                 descontos.valor = EntradaSaida.solicitarValorDesconto();
                 msg="Alterado!";
-                break;
             }
         }
-        EntradaSaida.mostrarAlerta(msg);
+        return msg;
     }
 
     public String mostrarDescontos() {
         String mostrarTodosDescontos="";
         for (Desconto descontos : this.descontosCadastrados) {
-            System.out.println("entrou");
-                mostrarTodosDescontos+="\n\n        Nome: " + descontos.nome+"\n"+"        Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor;
-                mostrarTodosDescontos+= "toma\n\n";
+                mostrarTodosDescontos+="\n        Nome: " + descontos.nome+"\n"+"        Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor;
+                mostrarTodosDescontos+= "toma\n";
         }
         return mostrarTodosDescontos;
     }
@@ -121,6 +119,9 @@ public class ListaDesconto {
                             descontos.valor = 0.275;
                             descontos.ehDescontado = true;
                         }
+        }else if(descontos.nome.equals("VT")){
+            descontos.ehDescontado=EntradaSaida.recebeValeTransporte();
+
         }
     }
 }
