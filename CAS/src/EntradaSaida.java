@@ -75,10 +75,14 @@ public class EntradaSaida{
         double entrada = entradaDez.nextDouble();
         return entrada;
     }
-     public static int verificarExclusao() {
-        System.out.println("        Deseja excluir usuário? \n     [1] - Sim        [0] - Não");
+     public static boolean verificarExclusao() {
+        System.out.println("        Deseja excluir mais um usuário? \n     [1] - Sim        [2] - Não");
         Scanner entradaOnze = new Scanner(System.in);
         int sair = entradaOnze.nextInt();
-        return sair;
+        if(sair ==1){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
