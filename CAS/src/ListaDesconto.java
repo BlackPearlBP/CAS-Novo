@@ -15,7 +15,12 @@ public class ListaDesconto {
 
         Desconto descontos = new Desconto();
         descontos.nome = "FGTS";
-        descontos.descricao = "Saiba mais: O desconto do FGTS, ou Fundo de Garantia do Tempo de Serviço, é uma contribuição obrigatória do empregador que visa proteger o trabalhador, oferecendo recursos para situações específicas, como demissão sem justa causa e compra da casa própria.\nFonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx";
+        descontos.descricao = "Saiba mais: O desconto do FGTS, ou Fundo de Garantia \n" +
+             "do Tempo de Serviço, é uma contribuição obrigatória\n" +
+             "do empregador que visa proteger o trabalhador, oferecendo\n" +
+             "recursos para situações específicas, como demissão sem \n" +
+             "justa causa e compra da casa própria.\n" + 
+             "Fonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx";
         descontos.valor = 0.08;
         descontos.ehDescontado = true;
         adicionarDesconto(descontos);
@@ -79,8 +84,8 @@ public class ListaDesconto {
     public String mostrarDescontos() {
         String mostrarTodosDescontos="";
         for (Desconto descontos : this.descontosCadastrados) {
-                mostrarTodosDescontos+="\n        Nome: " + descontos.nome+"\n"+"        Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor;
-                mostrarTodosDescontos+= "toma\n";
+                mostrarTodosDescontos+="\n===============================\n        Nome: " + 
+                    descontos.nome+"\n        Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor + "\n===============================\n";
         }
         return mostrarTodosDescontos;
     }
