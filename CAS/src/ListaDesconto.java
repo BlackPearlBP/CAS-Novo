@@ -55,7 +55,7 @@ public class ListaDesconto {
                 System.out.println("        " + d.descricao);
                 System.out.println("        R$" + d.valor * salarioBruto);
             }
-            if (d.nome.equals("VT") && d.ehDescontado) {
+            else if (d.ehDescontado) {
                 somaDesconto += d.valor;
                 System.out.println("        " + d.nome);
                 System.out.println("        " + d.descricao);
