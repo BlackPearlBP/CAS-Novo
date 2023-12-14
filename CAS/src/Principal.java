@@ -3,8 +3,8 @@ import java.util.ListIterator;
 
 public class Principal {
     public static void main(String[] args) {
-        ListaUsuarios l=new ListaUsuarios();
-        ListaDesconto ld=new ListaDesconto();
+        ListaUsuarios listaUsuarios=new ListaUsuarios();
+        ListaDesconto listaDesconto=new ListaDesconto();
         boolean usuarioExistente=false;
         boolean loginAlterado = false;
         int opcaoMenuAdmin = 0;
@@ -15,10 +15,10 @@ public class Principal {
         String senha="";
         double salarioLiquido=0;
         Admin a=new Admin();
-        ld.setarDescontoInss();
-        ld.setarDescontoIrpf();
-        ld.setarDescontoFgts();
-        ld.setarDescontoVt();
+        listaDesconto.setarDescontoInss();
+        listaDesconto.setarDescontoIrpf();
+        listaDesconto.setarDescontoFgts();
+        listaDesconto.setarDescontoVt();
         
         
         
@@ -33,9 +33,9 @@ public class Principal {
                     // entrar como usuario->tela inicial
                     usuario=EntradaSaida.solicitarDados("o usuario");
                     senha=EntradaSaida.solicitarDados("a senha");
-                    usuarioExistente=l.verificarUsuario(usuario,senha,usuarioExistente);
+                    usuarioExistente=listaUsuarios.verificarUsuario(usuario,senha,usuarioExistente);
                     if(usuarioExistente){
-                        for(Usuario u : l.listaDeUsuarios){
+                        for(Usuario u : listaUsuarios.listaDeUsuarios){
                             if(u.usuario.equals(usuario)){
                                 System.out.println("        Bem-vindo, "+u.usuario+"!");
                             do{
@@ -43,8 +43,8 @@ public class Principal {
                                 switch(opcaoMenuUsuario){
                                     case 1:
                                     u.salarioBruto=EntradaSaida.solicitarSalarioBruto();  
-                                    ld.setarValoresDesconto(u.salarioBruto);                             
-                                    salarioLiquido=ld.somarDesconto(u.salarioBruto);
+                                    listaDesconto.setarValoresDesconto(u.salarioBruto);                             
+                                    salarioLiquido=listaDesconto.somarDesconto(u.salarioBruto);
                                     EntradaSaida.mostrarSalarioLiquido(salarioLiquido);
                                     break;                                   
                         }
@@ -58,7 +58,7 @@ public class Principal {
                     Usuario u = new Usuario();
                     u.usuario=EntradaSaida.cadastrarDadosUsuario("o usuario");
                     u.senha=EntradaSaida.cadastrarDadosUsuario("a senha");
-                    l.adicionarUsuario(u);
+                    listaUsuarios.adicionarUsuario(u);
                 break;
                 case 3:
                     //Login Admin
@@ -73,10 +73,10 @@ public class Principal {
                                 case 1:
                                 //Alterar descontos
                                 
-                                String mostrarDescontosString = ld.mostrarDescontos();
+                                String mostrarDescontosString = listaDesconto.mostrarDescontos();
                                 EntradaSaida.mostrarAlerta(mostrarDescontosString);
                                 nomeDescontoString=EntradaSaida.solicitarDados("o nome do desconto a ser alterado");
-                                ld.alterarValorDesconto(nomeDescontoString);
+                                listaDesconto.alterarValorDesconto(nomeDescontoString);
                                 break;
                                 case 2:
                                     String novoUsuario=EntradaSaida.solicitarDados("o novo usuario");
@@ -91,8 +91,8 @@ public class Principal {
                                     opcaoExclusao=EntradaSaida.verificarExclusao();
                                     switch(opcaoExclusao){
                                         case 1:
-                                        for(Usuario us : l.listaDeUsuarios){    
-                                            l.removerUsuarios(us);
+                                        for(Usuario us : listaUsuarios.listaDeUsuarios){    
+                                            listaUsuarios.removerUsuarios(us);
                                         }
                                         EntradaSaida.mostrarAlerta("Usuários excluídos!");
                                         break;
