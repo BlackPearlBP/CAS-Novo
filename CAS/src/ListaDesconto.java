@@ -6,112 +6,112 @@ public class ListaDesconto {
 
     ArrayList<Desconto> descontosCadastrados = new ArrayList<Desconto>();
 
-    public void adicionarDesconto(Desconto d) {
-        this.descontosCadastrados.add(d);
+    public void adicionarDesconto(Desconto descontos) {
+        this.descontosCadastrados.add(descontos);
 
     }
 
     public void setarDescontoFgts() {
 
-        Desconto d = new Desconto();
-        d.nome = "\n[FGTS]--------------------------------------------------------------------------------------------";
-        d.descricao = "Saiba mais: O desconto do FGTS, ou Fundo de Garantia do Tempo de Serviço, é uma contribuição obrigatória do empregador que visa proteger o trabalhador, oferecendo recursos para situações específicas, como demissão sem justa causa e compra da casa própria.\nFonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx";
-        d.valor = 0.08;
-        d.ehDescontado = true;
-        adicionarDesconto(d);
+        Desconto descontos = new Desconto();
+        descontos.nome = "\n[FGTS]--------------------------------------------------------------------------------------------";
+        descontos.descricao = "Saiba mais: O desconto do FGTS, ou Fundo de Garantia do Tempo de Serviço, é uma contribuição obrigatória do empregador que visa proteger o trabalhador, oferecendo recursos para situações específicas, como demissão sem justa causa e compra da casa própria.\nFonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx";
+        descontos.valor = 0.08;
+        descontos.ehDescontado = true;
+        adicionarDesconto(descontos);
     }
 
     public void setarDescontoIrpf(double salarioBruto) {
-        Desconto d = new Desconto();
-        d.nome = "\n[IRRF]--------------------------------------------------------------------------------------------";
-        d.descricao = "Saiba mais: O desconto do IRRF, ou Imposto de Renda Retido na Fonte, é uma dedução obrigatória sobre rendimentos, sendo recolhido diretamente na fonte pagadora, contribuindo para financiar as despesas governamentais.\nFonte: www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/tributos/IRRF";
+        Desconto descontos = new Desconto();
+        descontos.nome = "\n[IRRF]--------------------------------------------------------------------------------------------";
+        descontos.descricao = "Saiba mais: O desconto do IRRF, ou Imposto de Renda Retido na Fonte, é uma dedução obrigatória sobre rendimentos, sendo recolhido diretamente na fonte pagadora, contribuindo para financiar as despesas governamentais.\nFonte: www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/tributos/IRRF";
         if(salarioBruto < 1903.99){
-            d.valor = 0;
-            d.ehDescontado = false;
+            descontos.valor = 0;
+            descontos.ehDescontado = false;
         }
         else{
             if(salarioBruto > 1903.99 && salarioBruto <= 2826.65){
-                d.valor = 0.075;
-                d.ehDescontado = true;
+                descontos.valor = 0.075;
+                descontos.ehDescontado = true;
             }
             else{
                 if(salarioBruto > 2826.66 && salarioBruto <= 3751.05){
-                    d.valor = 0.15;
-                    d.ehDescontado = true;
+                    descontos.valor = 0.15;
+                    descontos.ehDescontado = true;
                 }
                 else{
                     if(salarioBruto > 3751.05 && salarioBruto <= 4664.68){
-                        d.valor = 0.225;
-                        d.ehDescontado = true;
+                        descontos.valor = 0.225;
+                        descontos.ehDescontado = true;
                     }
                     else{
                         if(salarioBruto > 4664.68){
-                            d.valor = 0.275;
-                            d.ehDescontado = true;
+                            descontos.valor = 0.275;
+                            descontos.ehDescontado = true;
                             }
                         }
                     }
                 }
             }
         
-        adicionarDesconto(d);
+        adicionarDesconto(descontos);
     }
 
     public void setarDescontoInss(double salarioBruto) {
-        Desconto d = new Desconto();
-        d.nome = "\n[INSS]--------------------------------------------------------------------------------------------";
-        d.descricao = "Saiba mais: O desconto do INSS, ou Instituto Nacional do Seguro Social, é uma contribuição obrigatória descontada dos salários para financiar a previdência social, garantindo benefícios como aposentadoria, pensão e auxílio-doença.\nFonte: www.gov.br/inss/pt-br/saiba-mais";
+        Desconto descontos = new Desconto();
+        descontos.nome = "\n[INSS]--------------------------------------------------------------------------------------------";
+        descontos.descricao = "Saiba mais: O desconto do INSS, ou Instituto Nacional do Seguro Social, é uma contribuição obrigatória descontada dos salários para financiar a previdência social, garantindo benefícios como aposentadoria, pensão e auxílio-doença.\nFonte: www.gov.br/inss/pt-br/saiba-mais";
         
         if(salarioBruto <= 1320){
-            d.valor = 0.075;
-            d.ehDescontado = true;
+            descontos.valor = 0.075;
+            descontos.ehDescontado = true;
         }
         else{
             if(salarioBruto > 1320.01 && salarioBruto <= 2571.29){
-                d.valor = 0.09;
-                d.ehDescontado = true;
+                descontos.valor = 0.09;
+                descontos.ehDescontado = true;
             }
             else{
                 if(salarioBruto > 2571.3 && salarioBruto <= 3856.94){
-                    d.valor = 0.12;
-                    d.ehDescontado = true;
+                    descontos.valor = 0.12;
+                    descontos.ehDescontado = true;
                 }
                 else{
                     if(salarioBruto > 3856.95){
-                        d.valor = 0.14;
-                        d.ehDescontado = true;
+                        descontos.valor = 0.14;
+                        descontos.ehDescontado = true;
                         }
                     }
                 }
             }
         
-        adicionarDesconto(d);
+        adicionarDesconto(descontos);
     }
 
     public void setarDescontoVt() {
-        Desconto d = new Desconto();
-        d.nome = "\n[VT]----------------------------------------------------------------------------------------------";
-        d.descricao = "Saiba mais: O vale-transporte é um benefício opcional que visa subsidiar parcialmente os custos de deslocamento do trabalhador entre sua residência e local de trabalho, promovendo a acessibilidade e mobilidade urbana.\nFonte: www.pontotel.com.br/vale-alimentacao/";
-        d.valor = 0.08;
-        d.ehDescontado = EntradaSaida.recebeValeTransporte();
-        adicionarDesconto(d);
+        Desconto descontos = new Desconto();
+        descontos.nome = "\n[VT]----------------------------------------------------------------------------------------------";
+        descontos.descricao = "Saiba mais: O vale-transporte é um benefício opcional que visa subsidiar parcialmente os custos de deslocamento do trabalhador entre sua residência e local de trabalho, promovendo a acessibilidade e mobilidade urbana.\nFonte: www.pontotel.com.br/vale-alimentacao/";
+        descontos.valor = 0.08;
+        descontos.ehDescontado = EntradaSaida.recebeValeTransporte();
+        adicionarDesconto(descontos);
     }
 
     public double somarDesconto(double salarioBruto) {
         double somaDesconto = 0;
         double resultado = 0;
-        for (Desconto d : this.descontosCadastrados) {
-            resultado = d.valor * salarioBruto;
-            if (!d.nome.equals("VT")) {
-                somaDesconto += d.valor;
-                System.out.println("        " + d.nome);
-                System.out.println("        " + d.descricao);
+        for (Desconto descontos : this.descontosCadastrados) {
+            resultado = descontos.valor * salarioBruto;
+            if (!descontos.nome.equals("VT")) {
+                somaDesconto += descontos.valor;
+                System.out.println("        " + descontos.nome);
+                System.out.println("        " + descontos.descricao);
                 System.out.println("        R$" + df.format(resultado));
             }
-            if (d.nome.equals("VT") && d.ehDescontado) {
-                somaDesconto += d.valor;
-                System.out.println("        " + d.nome);
-                System.out.println("        " + d.descricao);
+            if (descontos.nome.equals("VT") && descontos.ehDescontado) {
+                somaDesconto += descontos.valor;
+                System.out.println("        " + descontos.nome);
+                System.out.println("        " + descontos.descricao);
                 System.out.println("        R$" + df.format(resultado));
             }
         }
@@ -123,9 +123,9 @@ public class ListaDesconto {
     public void alterarValorDesconto(String nomeDescontoString) {
         System.out.println("entrou");
         String msg="";
-        for (Desconto d : this.descontosCadastrados) {
-            if (d.nome.equals(nomeDescontoString)) {
-                d.valor = EntradaSaida.solicitarValorDesconto();
+        for (Desconto descontos : this.descontosCadastrados) {
+            if (descontos.nome.equals(nomeDescontoString)) {
+                descontos.valor = EntradaSaida.solicitarValorDesconto();
                 msg="Alterado!";
                 break;
             } else {
@@ -138,9 +138,9 @@ public class ListaDesconto {
 
     public String mostrarDescontos() {
         String mostrarTodosDescontos="";
-        for (Desconto d : this.descontosCadastrados) {
+        for (Desconto descontos : this.descontosCadastrados) {
              System.out.println("entrou");
-                mostrarTodosDescontos+="        Nome: " + d.nome+"\n"+"        Descrição: " + d.descricao+"\n        Valor: " +d.valor;
+                mostrarTodosDescontos+="        Nome: " + descontos.nome+"\n"+"        Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor;
                 mostrarTodosDescontos+= "toma";
         }
         return mostrarTodosDescontos;
