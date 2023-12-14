@@ -28,11 +28,10 @@ public class Principal {
             opcaoTelaLoginUsuario = EntradaSaida.menuInicial();
             switch (opcaoTelaLoginUsuario) {
                 case 1:
-                    // entrar como usuario->tela inicial
+                    // entrar como usuario
                     usuarioAuxiliarString = EntradaSaida.solicitarDados("o usuario");
                     senhaAuxiliarString = EntradaSaida.solicitarDados("a senha");
-                    usuarioExistente = listaUsuarios.verificarUsuario(usuarioAuxiliarString, senhaAuxiliarString,
-                            usuarioExistente);
+                    usuarioExistente = listaUsuarios.verificarUsuario(usuarioAuxiliarString, senhaAuxiliarString,usuarioExistente);
                     if (usuarioExistente) {
                         for (Usuario u : listaUsuarios.listaDeUsuarios) {
                             if (u.usuario.equals(usuarioAuxiliarString)) {
@@ -50,6 +49,8 @@ public class Principal {
                                 } while (opcaoMenuUsuario != 2);
                             }
                         }
+                    }else{
+                        EntradaSaida.mostrarAlerta("Usuario não existe!");
                     }
                     break;
                 case 2:
@@ -58,6 +59,7 @@ public class Principal {
                     u.usuario = EntradaSaida.cadastrarDadosUsuario("o usuario");
                     u.senha = EntradaSaida.cadastrarDadosUsuario("a senha");
                     listaUsuarios.adicionarUsuario(u);
+                    EntradaSaida.mostrarAlerta("Cadastro realizado!");
                     break;
                 case 3:
                     // Login Admin
