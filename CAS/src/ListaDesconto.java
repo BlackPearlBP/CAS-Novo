@@ -102,13 +102,12 @@ public class ListaDesconto {
         double resultado = 0;
         for (Desconto d : this.descontosCadastrados) {
             resultado = d.valor * salarioBruto;
-            if (!d.nome.equals("VT")) {
+            if (!d.nome.equals("\n[VT]----------------------------------------------------------------------------------------------")) {
                 somaDesconto += d.valor;
                 System.out.println("        " + d.nome);
                 System.out.println("        " + d.descricao);
                 System.out.println("        R$" + df.format(resultado));
-            }
-            else if (d.ehDescontado) {
+            }else if (d.ehDescontado) {
                 somaDesconto += d.valor;
                 System.out.println("        " + d.nome);
                 System.out.println("        " + d.descricao);
