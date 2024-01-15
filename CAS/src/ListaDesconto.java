@@ -15,12 +15,12 @@ public class ListaDesconto {
 
         Desconto descontos = new Desconto();
         descontos.nome = "FGTS";
-        descontos.descricao = "Saiba mais: O desconto do FGTS, ou Fundo de Garantia \n" +
-            "        do Tempo de Serviço, é uma contribuição obrigatória\n" +
-            "        do empregador que visa proteger o trabalhador, oferecendo\n" +
-            "        recursos para situações específicas, como demissão sem \n" +
-            "        justa causa e compra da casa própria.\n" + 
-            "        Fonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx";
+        descontos.descricao = "Saiba mais: O desconto do FGTS, ou Fundo de Garantia                         |\n" +
+            "|       do Tempo de Serviço, é uma contribuição obrigatória                          |\n" +
+            "|       do empregador que visa proteger o trabalhador, oferecendo                    |\n" +
+            "|       recursos para situações específicas, como demissão sem                       |\n" +
+            "|       justa causa e compra da casa própria.                                        |\n" + 
+            "|       Fonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx                     |";
         descontos.valor = 0.08;
         descontos.ehDescontado = true;
         adicionarDesconto(descontos);
@@ -29,33 +29,33 @@ public class ListaDesconto {
     public void setarDescontoIrpf() {
         Desconto descontos = new Desconto();
         descontos.nome = "IRRF";
-        descontos.descricao = "Saiba mais: O desconto do IRRF, ou Imposto de Renda\n" +  
-            "        Retido na Fonte, é uma dedução obrigatória sobre rendimentos,\n" + 
-            "        sendo recolhido diretamente na fonte pagadora, contribuindo\n" +
-            "        para financiar as despesas governamentais.\n" +
-            "        Fonte: www.gov.br/receitafederal/pt-br/assuntos/orientacao-\n" + 
-            "        tributaria/tributos/IRRF";
+        descontos.descricao = "Saiba mais: O desconto do IRRF, ou Imposto de Renda                          |\n" +  
+            "|       Retido na Fonte, é uma dedução obrigatória sobre rendimentos,                |\n" + 
+            "|       sendo recolhido diretamente na fonte pagadora, contribuindo                  |\n" +
+            "|       para financiar as despesas governamentais.                                   |\n" +
+            "|       Fonte: www.gov.br/receitafederal/pt-br/assuntos/orientacao-                  |\n" + 
+            "|       tributaria/tributos/IRRF                                                     |";
         adicionarDesconto(descontos);
     }
     public void setarDescontoInss() {
         Desconto descontos = new Desconto();
         descontos.nome = "INSS";
-        descontos.descricao = "Saiba mais: O desconto do INSS, ou Instituto Nacional\n" +
-            "        do Seguro Social, é uma contribuição obrigatória descontada\n" +
-            "        dos salários para financiar a previdência social, garantindo\n" + 
-            "        benefícios como aposentadoria, pensão e auxílio-doença.\n" + 
-            "        Fonte: www.gov.br/inss/pt-br/saiba-mais";
+        descontos.descricao = "Saiba mais: O desconto do INSS, ou Instituto Nacional                        |\n" +
+            "|       do Seguro Social, é uma contribuição obrigatória descontada                  |\n" +
+            "|       dos salários para financiar a previdência social, garantindo                 |\n" + 
+            "|       benefícios como aposentadoria, pensão e auxílio-doença.                      |\n" + 
+            "|       Fonte: www.gov.br/inss/pt-br/saiba-mais                                      |";
         adicionarDesconto(descontos);
     }
     public void setarDescontoVt() {
         Desconto descontos = new Desconto();
         descontos.nome = "VT";
         descontos.valor = 0.08;
-        descontos.descricao = "Saiba mais: O vale-transporte é um benefício opcional\n" +
-            "        que visa subsidiar parcialmente os custos de deslocamento\n" + 
-            "        do trabalhador entre sua residência e local de trabalho,\n" +
-            "        promovendo a acessibilidade e mobilidade urbana.\n" +
-            "        Fonte: www.pontotel.com.br/vale-alimentacao/";
+        descontos.descricao = "Saiba mais: O vale-transporte é um benefício opcional                        |\n" +
+            "|       que visa subsidiar parcialmente os custos de deslocamento                    |\n" + 
+            "|       do trabalhador entre sua residência e local de trabalho,                     |\n" +
+            "|       promovendo a acessibilidade e mobilidade urbana.                             |\n" +
+            "|       Fonte: www.pontotel.com.br/vale-alimentacao/                                 |";
         descontos.ehDescontado = false;
         adicionarDesconto(descontos);
     }
@@ -67,15 +67,15 @@ public class ListaDesconto {
             resultado = descontos.valor * salarioBruto;
             if (!descontos.nome.equals("VT")) {
                 somaDesconto += descontos.valor;
-                System.out.println("\n======================================================================================\n" + "|        " + descontos.nome);
-                System.out.println("        " + descontos.descricao);
-                System.out.println("|        R$" + df.format(resultado) + "\n======================================================================================\n");
+                System.out.println("\n======================================================================================\n" + "|       " + descontos.nome + "                                                                         |");
+                System.out.println("|       " + descontos.descricao + "\n======================================================================================\n");
+                System.out.println("                                         R$" + df.format(resultado) + "\n\n======================================================================================\n");
             }
             if (descontos.nome.equals("VT") && descontos.ehDescontado) {
                 somaDesconto += descontos.valor;
-                System.out.println("\n======================================================================================\n" + "|        " + descontos.nome);
-                System.out.println("        " + descontos.descricao);
-                System.out.println("|        R$" + df.format(resultado) + "\n======================================================================================\n");
+                System.out.println("\n======================================================================================\n" + "|       " + descontos.nome + "                                                                           |");
+                System.out.println("|       " + descontos.descricao + "\n======================================================================================\n");
+                System.out.println("                                         R$" + df.format(resultado) + "\n\n======================================================================================\n");
             }
         }
 
@@ -102,7 +102,7 @@ public class ListaDesconto {
         String mostrarTodosDescontos="";
         for (Desconto descontos : this.descontosCadastrados) {
                 mostrarTodosDescontos+="\n======================================================================================\n        Nome: " + 
-                    descontos.nome+"\n        Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor + "\n======================================================================================\n";
+                    descontos.nome+"\n         Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor + "\n======================================================================================\n";
         }
         return mostrarTodosDescontos;
     }
