@@ -33,7 +33,8 @@ public class ListaDesconto {
             "        Retido na Fonte, é uma dedução obrigatória sobre rendimentos,\n" + 
             "        sendo recolhido diretamente na fonte pagadora, contribuindo\n" +
             "        para financiar as despesas governamentais.\n" +
-            "        Fonte: www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/tributos/IRRF";
+            "        Fonte: www.gov.br/receitafederal/pt-br/assuntos/orientacao-\n" + 
+            "        tributaria/tributos/IRRF";
         adicionarDesconto(descontos);
     }
     public void setarDescontoInss() {
@@ -66,15 +67,16 @@ public class ListaDesconto {
             resultado = descontos.valor * salarioBruto;
             if (!descontos.nome.equals("VT")) {
                 somaDesconto += descontos.valor;
-                System.out.println("        " + descontos.nome);
+                System.out.println("\n======================================================================================\n" + "|        " + descontos.nome);
                 System.out.println("        " + descontos.descricao);
-                System.out.println("        R$" + df.format(resultado));
+                System.out.println("|        R$" + df.format(resultado) + 
+                    "\n======================================================================================\n");
             }
             if (descontos.nome.equals("VT") && descontos.ehDescontado) {
                 somaDesconto += descontos.valor;
-                System.out.println("        " + descontos.nome);
+                System.out.println("\n======================================================================================\n" + "|        " + descontos.nome);
                 System.out.println("        " + descontos.descricao);
-                System.out.println("        R$" + df.format(resultado));
+                System.out.println("|        R$" + df.format(resultado) + "\n======================================================================================\n");
             }
         }
 
