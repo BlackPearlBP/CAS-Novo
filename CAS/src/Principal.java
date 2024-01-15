@@ -29,6 +29,7 @@ public class Principal {
         listaDesconto.setarDescontoVt();
 
         do {
+            LimpaConsole.limparTela();
             if (loginAlterado == false) {
                 admin.usuario = "admin";
                 admin.senha = "admin";
@@ -56,7 +57,6 @@ public class Principal {
                                             u.salarioBruto = EntradaSaida.solicitarSalarioBruto();
                                             listaDesconto.setarValoresDesconto(u.salarioBruto);
                                             salarioLiquido = listaDesconto.somarDesconto(u.salarioBruto);
-                                            LimpaConsole.limparTela();
                                             EntradaSaida.mostrarSalarioLiquido(salarioLiquido);
                                             break;
                                     }
@@ -86,7 +86,10 @@ public class Principal {
                     LimpaConsole.limparTela();
                     usuarioAuxiliarString = EntradaSaida.solicitarDados("o usuario");
                     senhaAuxiliarString = EntradaSaida.solicitarDados("a senha");
+                    LimpaConsole.limparTela();
                     usuarioExistente = admin.verificarAdmin(usuarioAuxiliarString, senhaAuxiliarString);
+                    wait(1000);
+                    LimpaConsole.limparTela();
                     if (usuarioExistente) {
                         String nomeDescontoString = "";
                         do {
@@ -97,7 +100,6 @@ public class Principal {
                                     LimpaConsole.limparTela();
                                     String mostrarDescontosString = listaDesconto.mostrarDescontos();
                                     EntradaSaida.mostrarAlerta(mostrarDescontosString);
-
                                     nomeDescontoString = EntradaSaida.solicitarDados("o nome do desconto a ser alterado");                                  
                                     EntradaSaida.mostrarAlerta(listaDesconto.alterarValorDesconto(nomeDescontoString));
                                     break;
