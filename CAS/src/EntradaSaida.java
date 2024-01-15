@@ -18,7 +18,7 @@ public class EntradaSaida{
         System.out.println("        Digite "+msg);
         Scanner entradaDois = new Scanner(System.in);
         String entrada = entradaDois.nextLine();
-        return entrada;
+        return entrada; 
     }
     public static String solicitarDados(String msg){
         System.out.println("        Digite "+msg);
