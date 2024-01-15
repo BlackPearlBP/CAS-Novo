@@ -51,7 +51,7 @@ public class Principal {
                             }
                         }
                     }else{
-                        EntradaSaida.mostrarAlerta("Usuario não existe!");
+                        EntradaSaida.mostrarAlerta("Usuario ou senha incorreto!");
                     }
                     break;
                 case 2:
