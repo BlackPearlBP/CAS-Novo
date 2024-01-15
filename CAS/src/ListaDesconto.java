@@ -69,8 +69,7 @@ public class ListaDesconto {
                 somaDesconto += descontos.valor;
                 System.out.println("\n======================================================================================\n" + "|        " + descontos.nome);
                 System.out.println("        " + descontos.descricao);
-                System.out.println("|        R$" + df.format(resultado) + 
-                    "\n======================================================================================\n");
+                System.out.println("|        R$" + df.format(resultado) + "\n======================================================================================\n");
             }
             if (descontos.nome.equals("VT") && descontos.ehDescontado) {
                 somaDesconto += descontos.valor;
