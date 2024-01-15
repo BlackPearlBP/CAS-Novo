@@ -6,7 +6,12 @@ public class EntradaSaida{
 
     public static int menuInicial(){
         //String[] opcoes = {"1 - Login Usuário","2 - Cadastrar Usuário","3 - Login Admin","4 - Sair"}; 
-        System.out.println("        [1] - Login Usuário\n        [2] - Cadastrar Usuário\n        [3] - Login Admin\n        [4] - Sair");
+        System.out.println("\n======================================================================================\n" +
+            "|        [1] - Login Usuário                                                         |\n" + 
+            "|        [2] - Cadastrar Usuário                                                     |\n" + 
+            "|        [3] - Login Admin                                                           |\n" + 
+            "|        [4] - Sair                                                                  |\n" + 
+            "======================================================================================");
         return entradaUser.nextInt();
     }
     public static String cadastrarDadosUsuario(String msg){
