@@ -4,8 +4,19 @@ public class ListaUsuarios {
     public ArrayList<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
     
 
-    public void adicionarUsuario(Usuario u) {
-        this.listaDeUsuarios.add(u);
+    public boolean adicionarUsuario(Usuario u,String nome) {
+        boolean adicionado=false;
+        for (Usuario usuario:this.listaDeUsuarios){
+            if (usuario.usuario.equals(nome)){
+                adicionado=false;
+            }else{
+                this.listaDeUsuarios.add(u);
+                adicionado= true;
+                break;
+            }
+        }
+        return adicionado;
+        
     }
     public boolean verificarUsuario(String nomeDeUsuarioInserido, String senhaInserida,boolean usuarioExistente) {
         for (Usuario u : this.listaDeUsuarios){
@@ -14,6 +25,7 @@ public class ListaUsuarios {
                     "|        Usuário válido                                                              |" + 
                     "\n======================================================================================\n");
                 usuarioExistente=true;
+                break;
             }
             else{
                 usuarioExistente=false;

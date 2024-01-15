@@ -11,9 +11,11 @@ public class Principal {
     }
 }
     public static void main(String[] args) {
+        
         ListaUsuarios listaUsuarios = new ListaUsuarios();
         ListaDesconto listaDesconto = new ListaDesconto();
         boolean usuarioExistente = false;
+        boolean adicionado=false;
         boolean loginAlterado = false;
         int opcaoMenuAdmin = 0;
         boolean opcaoSairExclusao = false;
@@ -41,6 +43,7 @@ public class Principal {
                     LimpaConsole.limparTela();
                     usuarioAuxiliarString = EntradaSaida.solicitarDados("o usuario");
                     senhaAuxiliarString = EntradaSaida.solicitarDados("a senha");
+                    LimpaConsole.limparTela();
                     usuarioExistente = listaUsuarios.verificarUsuario(usuarioAuxiliarString, senhaAuxiliarString,usuarioExistente);
                     wait(1000);
                     LimpaConsole.limparTela();
@@ -76,11 +79,25 @@ public class Principal {
                     Usuario u = new Usuario();
                     u.usuario = EntradaSaida.cadastrarDadosUsuario("o usuario");
                     u.senha = EntradaSaida.cadastrarDadosUsuario("a senha");
-                    listaUsuarios.adicionarUsuario(u);
-                    EntradaSaida.mostrarAlerta("Cadastro realizado!");
-                    wait(1000);
+                    adicionado=listaUsuarios.adicionarUsuario(u,u.usuario);
+                    if(adicionado){
+                        LimpaConsole.limparTela();
+                        EntradaSaida.mostrarAlerta("\n======================================================================================\n" +  
+                        "|        Cadastro realizado!                                                         |" + 
+                        "\n======================================================================================\n");
+                        wait(1000);
+                    }else{
+                        LimpaConsole.limparTela();
+                        EntradaSaida.mostrarAlerta("\n======================================================================================\n" +  
+                        "|        Cadastro não foi realizado! :(                                              |" + 
+                        "\n======================================================================================\n");
+                        wait(1000);
+                    }
+                    
+                    
                     LimpaConsole.limparTela();
                     break;
+                
                 case 3:
                     // Login Admin
                     LimpaConsole.limparTela();
@@ -102,6 +119,8 @@ public class Principal {
                                     EntradaSaida.mostrarAlerta(mostrarDescontosString);
                                     nomeDescontoString = EntradaSaida.solicitarDados("o nome do desconto a ser alterado");                                  
                                     EntradaSaida.mostrarAlerta(listaDesconto.alterarValorDesconto(nomeDescontoString));
+                                    wait(1000);
+                                    LimpaConsole.limparTela();
                                     break;
                                 case 2:
                                     LimpaConsole.limparTela();

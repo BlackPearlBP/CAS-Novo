@@ -49,12 +49,12 @@ public class ListaDesconto {
     public void setarDescontoVt() {
         Desconto descontos = new Desconto();
         descontos.nome = "VT";
+        descontos.valor = 0.08;
         descontos.descricao = "Saiba mais: O vale-transporte é um benefício opcional\n" +
             "        que visa subsidiar parcialmente os custos de deslocamento\n" + 
             "        do trabalhador entre sua residência e local de trabalho,\n" +
             "        promovendo a acessibilidade e mobilidade urbana.\n" +
             "        Fonte: www.pontotel.com.br/vale-alimentacao/";
-        descontos.valor = 0.08;
         descontos.ehDescontado = false;
         adicionarDesconto(descontos);
     }
@@ -87,7 +87,11 @@ public class ListaDesconto {
         for (Desconto descontos : this.descontosCadastrados) {
             if (descontos.nome.equals(nomeDescontoString)) {
                 descontos.valor = EntradaSaida.solicitarValorDesconto();
-                msg="Alterado!";
+                
+                msg="\n======================================================================================\n" +  
+                "|        Alterado!                                                                   |" + 
+                "\n======================================================================================\n";
+                LimpaConsole.limparTela();
             }
         }
         return msg;

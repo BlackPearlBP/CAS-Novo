@@ -36,12 +36,14 @@ public class EntradaSaida{
         return entrada;
     }
     public static int menuAdmin() {
+        System.out.println("\n======================================================================================\n" +  
+                    "|        Escolha uma opção:                                                          |" + 
+                    "\n======================================================================================");
         System.out.println("\n======================================================================================\n" + 
-            "|        Escolha uma opção:                                                                  |\n" + 
-            "|        [1] - Alterar descontos                                                             |\n" + 
-            "|        [2] - Alterar login administrador                                                   |\n" + 
-            "|        [3] - Excluir usuarios                                                              |\n" + 
-            "|        [4] - Voltar                                                                        |" + 
+            "|        [1] - Alterar descontos                                                     |\n" + 
+            "|        [2] - Alterar login administrador                                           |\n" + 
+            "|        [3] - Excluir usuarios                                                      |\n" + 
+            "|        [4] - Voltar                                                                |" + 
             "\n======================================================================================\n");
         Scanner entradaAdmin = new Scanner(System.in);
         int entrada = entradaAdmin.nextInt();
