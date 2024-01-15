@@ -17,16 +17,4 @@ public class Admin {
                 return false;
         }
     }       
-        public static int menuAdmin() {
-        System.out.println("\n======================================================================================\n" + 
-            "|        Escolha uma opção:                                                                  |\n" + 
-            "|        [1] - Alterar descontos                                                             |\n" + 
-            "|        [2] - Alterar login administrador                                                   |\n" + 
-            "|        [3] - Voltar                                                                        |" + 
-            "\n======================================================================================\n");
-        Scanner entradaAdmin = new Scanner(System.in);
-        int entrada = entradaAdmin.nextInt();
-        return entrada;
-        
-    }
 }
