@@ -81,7 +81,7 @@ public class EntradaSaida{
         return entrada;
     }
      public static boolean verificarExclusao() {
-        System.out.println("        Deseja excluir mais um usuário? \n     [1] - Sim        [2] - Não");
+        System.out.println("        Continuar excluindo? \n        [1] - Sim        [2] - Não");
         Scanner entradaOnze = new Scanner(System.in);
         int sair = entradaOnze.nextInt();
         if(sair ==1){
