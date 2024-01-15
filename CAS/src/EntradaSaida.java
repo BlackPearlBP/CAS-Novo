@@ -75,13 +75,13 @@ public class EntradaSaida{
         System.out.println("        O salário líquido a receber é: R$"+salarioLiquido); 
     }
     public static double solicitarValorDesconto() {
-        System.out.println("        Digite o novo valor do desconto");
+        System.out.println("        Digite o novo valor do desconto: (Utilize virgula ',')");
         Scanner entradaDez = new Scanner(System.in);
         double entrada = entradaDez.nextDouble();
         return entrada;
     }
      public static boolean verificarExclusao() {
-        System.out.println("        Deseja excluir mais um usuário? \n     [1] - Sim        [2] - Não");
+        System.out.println("        Continuar excluindo? \n        [1] - Sim        [2] - Não");
         Scanner entradaOnze = new Scanner(System.in);
         int sair = entradaOnze.nextInt();
         if(sair ==1){
