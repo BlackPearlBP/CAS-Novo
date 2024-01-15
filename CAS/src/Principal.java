@@ -1,6 +1,3 @@
-import java.util.Iterator;
-import java.util.ListIterator;
-
 public class Principal {
     public static void main(String[] args) {
         ListaUsuarios listaUsuarios = new ListaUsuarios();
@@ -51,7 +48,7 @@ public class Principal {
                             }
                         }
                     }else{
-                        EntradaSaida.mostrarAlerta("Usuario não existe!");
+                        EntradaSaida.mostrarAlerta("Usuario ou senha incorreto!");
                     }
                     break;
                 case 2:
@@ -78,9 +75,7 @@ public class Principal {
                                     String mostrarDescontosString = listaDesconto.mostrarDescontos();
                                     EntradaSaida.mostrarAlerta(mostrarDescontosString);
 
-                                    nomeDescontoString = EntradaSaida
-                                            .solicitarDados("o nome do desconto a ser alterado");
-
+                                    nomeDescontoString = EntradaSaida.solicitarDados("o nome do desconto a ser alterado");                                  
                                     EntradaSaida.mostrarAlerta(listaDesconto.alterarValorDesconto(nomeDescontoString));
                                     break;
                                 case 2:

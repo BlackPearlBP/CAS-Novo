@@ -78,12 +78,12 @@ public class ListaDesconto {
             }
         }
 
-        System.out.println(("\nSoma dos descontos: R$" + (salarioBruto * somaDesconto)));
+        System.out.println(("\n        Soma dos descontos: R$" + (salarioBruto * somaDesconto)));
         return salarioBruto - (salarioBruto * somaDesconto);
     }
 
     public String alterarValorDesconto(String nomeDescontoString) {
-        String msg="Nome não encontrado!";
+        String msg="Desconto não encontrado!";
         for (Desconto descontos : this.descontosCadastrados) {
             if (descontos.nome.equals(nomeDescontoString)) {
                 descontos.valor = EntradaSaida.solicitarValorDesconto();

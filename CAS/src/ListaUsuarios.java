@@ -14,7 +14,6 @@ public class ListaUsuarios {
                 usuarioExistente=true;
             }
             else{
-                System.out.println("        Usuário inexistente");
                 usuarioExistente=false;
             };
         }
