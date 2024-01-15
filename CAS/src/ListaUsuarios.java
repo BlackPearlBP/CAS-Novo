@@ -10,7 +10,9 @@ public class ListaUsuarios {
     public boolean verificarUsuario(String nomeDeUsuarioInserido, String senhaInserida,boolean usuarioExistente) {
         for (Usuario u : this.listaDeUsuarios){
             if(u.usuario.equals(nomeDeUsuarioInserido) && u.senha.equals(senhaInserida)){
-                System.out.println("        Usuario valido");
+                System.out.println("\n======================================================================================\n" + 
+                    "|        Usuário válido                                                              |" + 
+                    "\n======================================================================================\n");
                 usuarioExistente=true;
             }
             else{
