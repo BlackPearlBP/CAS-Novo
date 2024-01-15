@@ -75,7 +75,7 @@ public class EntradaSaida{
         System.out.println("        O salário líquido a receber é: R$"+salarioLiquido); 
     }
     public static double solicitarValorDesconto() {
-        System.out.println("        Digite o novo valor do desconto");
+        System.out.println("        Digite o novo valor do desconto: (Utilize virgula ',')");
         Scanner entradaDez = new Scanner(System.in);
         double entrada = entradaDez.nextDouble();
         return entrada;
