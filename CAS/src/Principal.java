@@ -79,8 +79,9 @@ public class Principal {
                     Usuario u = new Usuario();
                     u.usuario = EntradaSaida.cadastrarDadosUsuario("o usuario");
                     u.senha = EntradaSaida.cadastrarDadosUsuario("a senha");
-                    adicionado=listaUsuarios.adicionarUsuario(u,u.usuario);
-                    if(adicionado){
+                    adicionado=listaUsuarios.verificaExistenciaUsuario(u.usuario, adicionado);
+                    if(!adicionado){
+                        listaUsuarios.adicionarUsuario(u,u.usuario);
                         LimpaConsole.limparTela();
                         EntradaSaida.mostrarAlerta("\n======================================================================================\n" +  
                         "|        Cadastro realizado!                                                         |" + 
