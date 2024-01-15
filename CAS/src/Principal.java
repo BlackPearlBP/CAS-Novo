@@ -1,4 +1,15 @@
 public class Principal {
+    public static void wait(int ms)
+{
+    try
+    {
+        Thread.sleep(ms);
+    }
+    catch(InterruptedException ex)
+    {
+        Thread.currentThread().interrupt();
+    }
+}
     public static void main(String[] args) {
         ListaUsuarios listaUsuarios = new ListaUsuarios();
         ListaDesconto listaDesconto = new ListaDesconto();
@@ -26,9 +37,12 @@ public class Principal {
             switch (opcaoTelaLoginUsuario) {
                 case 1:
                     // entrar como usuario
+                    LimpaConsole.limparTela();
                     usuarioAuxiliarString = EntradaSaida.solicitarDados("o usuario");
                     senhaAuxiliarString = EntradaSaida.solicitarDados("a senha");
                     usuarioExistente = listaUsuarios.verificarUsuario(usuarioAuxiliarString, senhaAuxiliarString,usuarioExistente);
+                    wait(1000);
+                    LimpaConsole.limparTela();
                     if (usuarioExistente) {
                         for (Usuario u : listaUsuarios.listaDeUsuarios) {
                             if (u.usuario.equals(usuarioAuxiliarString)) {
@@ -38,29 +52,38 @@ public class Principal {
                                     opcaoMenuUsuario = EntradaSaida.menuTelaUsuario();
                                     switch (opcaoMenuUsuario) {
                                         case 1:
+                                            LimpaConsole.limparTela();
                                             u.salarioBruto = EntradaSaida.solicitarSalarioBruto();
                                             listaDesconto.setarValoresDesconto(u.salarioBruto);
                                             salarioLiquido = listaDesconto.somarDesconto(u.salarioBruto);
+                                            LimpaConsole.limparTela();
                                             EntradaSaida.mostrarSalarioLiquido(salarioLiquido);
                                             break;
                                     }
                                 } while (opcaoMenuUsuario != 2);
+                                LimpaConsole.limparTela();
                             }
                         }
                     }else{
                         EntradaSaida.mostrarAlerta("Usuario ou senha incorreto!");
+                        wait(1000);
+                        LimpaConsole.limparTela();
                     }
                     break;
                 case 2:
                     // cadastrar novo usuario
+                    LimpaConsole.limparTela();
                     Usuario u = new Usuario();
                     u.usuario = EntradaSaida.cadastrarDadosUsuario("o usuario");
                     u.senha = EntradaSaida.cadastrarDadosUsuario("a senha");
                     listaUsuarios.adicionarUsuario(u);
                     EntradaSaida.mostrarAlerta("Cadastro realizado!");
+                    wait(1000);
+                    LimpaConsole.limparTela();
                     break;
                 case 3:
                     // Login Admin
+                    LimpaConsole.limparTela();
                     usuarioAuxiliarString = EntradaSaida.solicitarDados("o usuario");
                     senhaAuxiliarString = EntradaSaida.solicitarDados("a senha");
                     usuarioExistente = admin.verificarAdmin(usuarioAuxiliarString, senhaAuxiliarString);
@@ -71,7 +94,7 @@ public class Principal {
                             switch (opcaoMenuAdmin) {
                                 case 1:
                                     // Alterar descontos
-
+                                    LimpaConsole.limparTela();
                                     String mostrarDescontosString = listaDesconto.mostrarDescontos();
                                     EntradaSaida.mostrarAlerta(mostrarDescontosString);
 
@@ -79,6 +102,7 @@ public class Principal {
                                     EntradaSaida.mostrarAlerta(listaDesconto.alterarValorDesconto(nomeDescontoString));
                                     break;
                                 case 2:
+                                    LimpaConsole.limparTela();
                                     String novoUsuario = EntradaSaida.solicitarDados("o novo usuario");
                                     String novaSenha = EntradaSaida.solicitarDados("a nova senha");
                                     admin.usuario = novoUsuario;
@@ -87,6 +111,7 @@ public class Principal {
                                     break;
                                 case 3:
                                     // Excluir usuarios
+                                    LimpaConsole.limparTela();
                                     do {
                                         String mensagem = "Nome não encontrado!";
                                         usuarioAuxiliarString = EntradaSaida.cadastrarDadosUsuario("o nome do usuario");
@@ -103,7 +128,7 @@ public class Principal {
                                     break;
                             }
                         } while (opcaoMenuAdmin != 4);
-
+                        LimpaConsole.limparTela();
                     }
             }
 

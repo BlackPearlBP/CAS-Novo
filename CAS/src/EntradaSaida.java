@@ -33,9 +33,15 @@ public class EntradaSaida{
         return entrada;
     }
     public static int menuAdmin() {
-        System.out.println("        Escolha uma opção:\n        [1] - Alterar valor descontos\n        [2] - Alterar login administrador\n        [3] - Excluir usuarios\n        [4] - Voltar");
-        Scanner entradaCinco = new Scanner(System.in);
-        int entrada = entradaCinco.nextInt();
+        System.out.println("\n======================================================================================\n" + 
+            "|        Escolha uma opção:                                                                  |\n" + 
+            "|        [1] - Alterar descontos                                                             |\n" + 
+            "|        [2] - Alterar login administrador                                                   |\n" + 
+            "|        [3] - Excluir usuarios                                                              |\n" + 
+            "|        [4] - Voltar                                                                        |" + 
+            "\n======================================================================================\n");
+        Scanner entradaAdmin = new Scanner(System.in);
+        int entrada = entradaAdmin.nextInt();
         return entrada;
     }
      public static String solicitarInformacoesDesconto(String msg){
