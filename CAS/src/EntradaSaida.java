@@ -18,21 +18,25 @@ public class EntradaSaida{
         return entradaUser.nextInt();
     }
     public static String cadastrarDadosUsuario(String msg){
-        System.out.println("        Digite "+msg);
+        System.out.println("\n======================================================================================\n" + "        Digite "+msg);
         Scanner entradaDois = new Scanner(System.in);
         String entrada = entradaDois.nextLine();
+        System.out.println("\n======================================================================================\n");
         return entrada; 
     }
     public static String solicitarDados(String msg){
-        System.out.println("        Digite "+msg);
+        System.out.println("\n======================================================================================\n" + "        Digite "+msg);
         Scanner entradaTres = new Scanner(System.in);
         String entrada = entradaTres.nextLine();
+        System.out.println("\n======================================================================================\n");
         return entrada;
     }
     public static double solicitarSalarioBruto() {
-        System.out.println("        Informe o salario *BRUTO*: ");
+        System.out.println("\n======================================================================================\n"+
+        "        Informe o salario *BRUTO*: ");
         Scanner entradaQuatro = new Scanner(System.in);
         double entrada = entradaQuatro.nextDouble();
+        System.out.println("\n======================================================================================\n");
         return entrada;
     }
     public static int menuAdmin() {
@@ -50,13 +54,16 @@ public class EntradaSaida{
         return entrada;
     }
      public static String solicitarInformacoesDesconto(String msg){
-        System.out.println("        Digite "+msg);
+        System.out.println("\n======================================================================================\n"+
+            "        Digite "+msg+
+            "\n======================================================================================\n");
         Scanner entradaSeis = new Scanner(System.in);
         String entrada = entradaSeis.nextLine();
         return entrada;
     }        
     public static int verificarSaida() {
-        System.out.println("        Deseja sair? \n     [1] - Sim        [0] - Não");
+        System.out.println("\n======================================================================================\n" +
+            "        Deseja sair? \n     [1] - Sim        [0] - Não" + "\n======================================================================================\n");
         Scanner entradaSete = new Scanner(System.in);
         int sair = entradaSete.nextInt();
         return sair;
@@ -65,13 +72,17 @@ public class EntradaSaida{
         System.out.println(msg);
 	}
     public static int menuTelaUsuario() {
-        System.out.println("        Escolha uma opção:\n        [1] - Calcular Salario\n        [2] - Voltar");
+        System.out.println("\n======================================================================================\n"+
+            "        Escolha uma opção:\n        [1] - Calcular Salario\n        [2] - Voltar"+
+            "\n======================================================================================\n");
         Scanner entradaOito = new Scanner(System.in);
         int entrada = entradaOito.nextInt();
         return entrada;
     }
     public static boolean recebeValeTransporte(){
-        System.out.println("        Recebe Vale-Transporte?\n        [1] - Sim \n        [2] - Não");
+        System.out.println("\n======================================================================================\n"+
+            "        Recebe Vale-Transporte?\n        [1] - Sim \n        [2] - Não"+
+            "\n======================================================================================\n");
         Scanner entradaNove = new Scanner(System.in);
         int entrada = entradaNove.nextInt();
         do{
@@ -83,16 +94,20 @@ public class EntradaSaida{
         }while(entrada!=2 && entrada!=1);
 }
     public static void mostrarSalarioLiquido(double salarioLiquido) {
-        System.out.println("        O salário líquido a receber é: R$"+salarioLiquido); 
+        System.out.println("\n======================================================================================\n"+
+            "        O salário líquido a receber é: R$"+salarioLiquido + "\n======================================================================================\n"); 
     }
     public static double solicitarValorDesconto() {
-        System.out.println("        Digite o novo valor do desconto: (Utilize virgula ',')");
+        System.out.println("\n======================================================================================\n"+
+            "        Digite o novo valor do desconto: (Utilize virgula ',')" + 
+            "\n======================================================================================\n");
         Scanner entradaDez = new Scanner(System.in);
         double entrada = entradaDez.nextDouble();
         return entrada;
     }
      public static boolean verificarExclusao() {
-        System.out.println("        Continuar excluindo? \n        [1] - Sim        [2] - Não");
+        System.out.println("\n======================================================================================\n"+
+            "        Continuar excluindo? \n        [1] - Sim        [2] - Não"+"\n======================================================================================\n");
         Scanner entradaOnze = new Scanner(System.in);
         int sair = entradaOnze.nextInt();
         if(sair ==1){
