@@ -21,25 +21,34 @@ public class EntradaSaida{
         return entradaUser.nextInt();
     }
     public static String cadastrarDadosUsuario(String msg){
-        System.out.println("\n======================================================================================\n" + "        Digite "+msg);
+        System.out.println("        Digite "+msg);
         Scanner entradaDois = new Scanner(System.in);
         String entrada = entradaDois.nextLine();
         //System.out.println("\n======================================================================================");
         return entrada; 
     }
     public static String solicitarDados(String msg){
-        System.out.println("\n======================================================================================\n" + "        Digite "+msg);
+        System.out.println("        Digite "+msg);
         Scanner entradaTres = new Scanner(System.in);
         String entrada = entradaTres.nextLine();
         //System.out.println("\n======================================================================================\n");
         return entrada;
     }
     public static double solicitarSalarioBruto() {
+        boolean valorCorreto = false;
         LimpaConsole.limparTela();
-        System.out.println("\n======================================================================================\n"+
-        "        Informe o salario *BRUTO*: ");
-        Scanner entradaQuatro = new Scanner(System.in);
-        double entrada = entradaQuatro.nextDouble();
+        System.out.println("        Informe o salario *BRUTO*: ");
+        double entrada = 0;
+        do{
+            try{
+                Scanner entradaQuatro = new Scanner(System.in);
+                entrada = entradaQuatro.nextDouble();
+                valorCorreto = true;
+            }catch (Exception e){
+                System.out.println("Você digitou algo errado. Tente novamente.");
+                valorCorreto = false;
+            }
+        }while (valorCorreto != true);
         //System.out.println("\n======================================================================================\n");
         return entrada;
     }
