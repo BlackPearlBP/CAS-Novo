@@ -68,7 +68,9 @@ public class Principal {
                             }
                         }
                     }else{
-                        EntradaSaida.mostrarAlerta("Usuario ou senha incorreto!");
+                        EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
+                        "|        Usuário ou senha inválida                                                   |" + 
+                        "\n======================================================================================\n");
                         wait(1000);
                         LimpaConsole.limparTela();
                     }
