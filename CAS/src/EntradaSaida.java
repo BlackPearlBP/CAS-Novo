@@ -21,14 +21,14 @@ public class EntradaSaida{
         System.out.println("\n======================================================================================\n" + "        Digite "+msg);
         Scanner entradaDois = new Scanner(System.in);
         String entrada = entradaDois.nextLine();
-        System.out.println("\n======================================================================================\n");
+        //System.out.println("\n======================================================================================");
         return entrada; 
     }
     public static String solicitarDados(String msg){
         System.out.println("\n======================================================================================\n" + "        Digite "+msg);
         Scanner entradaTres = new Scanner(System.in);
         String entrada = entradaTres.nextLine();
-        System.out.println("\n======================================================================================\n");
+        //System.out.println("\n======================================================================================\n");
         return entrada;
     }
     public static double solicitarSalarioBruto() {
@@ -36,7 +36,7 @@ public class EntradaSaida{
         "        Informe o salario *BRUTO*: ");
         Scanner entradaQuatro = new Scanner(System.in);
         double entrada = entradaQuatro.nextDouble();
-        System.out.println("\n======================================================================================\n");
+        //System.out.println("\n======================================================================================\n");
         return entrada;
     }
     public static int menuAdmin() {
@@ -94,8 +94,7 @@ public class EntradaSaida{
         }while(entrada!=2 && entrada!=1);
 }
     public static void mostrarSalarioLiquido(double salarioLiquido) {
-        System.out.println("\n======================================================================================\n"+
-            "        O salário líquido a receber é: R$"+salarioLiquido + "\n======================================================================================\n"); 
+        System.out.println("        O salário líquido a receber é: R$"+salarioLiquido); 
     }
     public static double solicitarValorDesconto() {
         System.out.println("\n======================================================================================\n"+
