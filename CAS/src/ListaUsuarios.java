@@ -18,6 +18,9 @@ public class ListaUsuarios {
                 break;
             }
             else{
+                EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
+                        "|        Usuário ou senha inválida                                                   |" + 
+                        "\n======================================================================================\n");
                 usuarioExistente=false;
             };
         }

@@ -51,7 +51,7 @@ public class Principal {
                         for (Usuario u : listaUsuarios.listaDeUsuarios) {
                             if (u.usuario.equals(usuarioAuxiliarString)) {
                                 //Runtime.getRuntime().exec("cls")
-                                System.out.println("        Bem-vindo, " + u.usuario + "!");
+                                System.out.println("        Bem-vindo, " + u.usuario + "!");//enqudrar
                                 do {
                                     opcaoMenuUsuario = EntradaSaida.menuTelaUsuario();
                                     switch (opcaoMenuUsuario) {
