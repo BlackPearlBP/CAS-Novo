@@ -84,7 +84,9 @@ public class ListaDesconto {
     }
 
     public String alterarValorDesconto(String nomeDescontoString) {
-        String msg="Desconto não encontrado!";
+        String msg="\n======================================================================================\n" +  
+        "|        Desconto não encontrado!                                                    |" + 
+        "\n======================================================================================\n";
         for (Desconto descontos : this.descontosCadastrados) {
             if (descontos.nome.equals(nomeDescontoString)) {
                 descontos.valor = EntradaSaida.solicitarValorDesconto();
