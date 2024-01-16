@@ -16,6 +16,7 @@ public class Principal {
         ListaDesconto listaDesconto = new ListaDesconto();
         boolean usuarioExistente = false;
         boolean adicionado=false;
+        boolean jaSetado = false;
         boolean loginAlterado = false;
         int opcaoMenuAdmin = 0;
         boolean opcaoSairExclusao = false;
@@ -25,14 +26,16 @@ public class Principal {
         String senhaAuxiliarString = "";
         double salarioLiquido = 0;
         Admin admin = new Admin();
-        listaDesconto.setarDescontoInss();
-        listaDesconto.setarDescontoIrpf();
-        listaDesconto.setarDescontoFgts();
-        listaDesconto.setarDescontoVt();
+        if(!jaSetado)
+            listaDesconto.setarDescontoInss();
+            listaDesconto.setarDescontoIrpf();
+            listaDesconto.setarDescontoFgts();
+            listaDesconto.setarDescontoVt();
+            jaSetado=true;
 
         do {
             LimpaConsole.limparTela();
-            if (loginAlterado == false) {
+            if (!loginAlterado) {
                 admin.usuario = "admin";
                 admin.senha = "admin";
             }
@@ -52,7 +55,9 @@ public class Principal {
                             if (u.usuario.equals(usuarioAuxiliarString)) {
                                 System.out.println("        Bem-vindo, " + u.usuario + "!");//enqudrar
                                 do {
+                                    
                                     opcaoMenuUsuario = EntradaSaida.menuTelaUsuario();
+                                    LimpaConsole.limparTela();
                                     switch (opcaoMenuUsuario) {
                                         case 1:
                                             LimpaConsole.limparTela();

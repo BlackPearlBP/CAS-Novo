@@ -64,20 +64,15 @@ public class ListaDesconto {
 
     public double somarDesconto(double salarioBruto) {
         double somaDesconto = 0;
-        double resultado = 0;
+        LimpaConsole.limparTela();
+        EntradaSaida.mostrarAlerta(mostrarDescontosCalculadora(salarioBruto));
+
         for (Desconto descontos : this.descontosCadastrados) {
-            resultado = descontos.valor * salarioBruto;
             if (!descontos.nome.equals("VT")) {
                 somaDesconto += descontos.valor;
-                System.out.println("\n======================================================================================\n" + "|       " + descontos.nome + "                                                                         |");
-                System.out.println("|       " + descontos.descricao + "\n======================================================================================\n");
-                System.out.println("                                         R$" + df.format(resultado) + "\n\n======================================================================================\n");
             }
             if (descontos.nome.equals("VT") && descontos.ehDescontado) {
                 somaDesconto += descontos.valor;
-                System.out.println("\n======================================================================================\n" + "|       " + descontos.nome + "                                                                           |");
-                System.out.println("|       " + descontos.descricao + "\n======================================================================================\n");
-                System.out.println("                                         R$" + df.format(resultado) + "\n\n======================================================================================\n");
             }
         }
 
@@ -100,6 +95,20 @@ public class ListaDesconto {
             }
         }
         return msg;
+    }
+
+    public String mostrarDescontosCalculadora(double salario) {
+        String mostrarTodosDescontos="";
+        for (Desconto descontos : this.descontosCadastrados) {
+            if(descontos.nome.equals("VT")&&descontos.ehDescontado)
+                mostrarTodosDescontos+="\n======================================================================================\n                        Nome: " + 
+                    descontos.nome+"\n\n         Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
+            else{
+                mostrarTodosDescontos+="\n======================================================================================\n                        Nome: " + 
+                    descontos.nome+"\n\n         Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
+            }
+        }
+        return mostrarTodosDescontos;
     }
 
     public String mostrarDescontos() {
