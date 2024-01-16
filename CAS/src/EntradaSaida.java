@@ -1,3 +1,5 @@
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class EntradaSaida{
@@ -32,6 +34,7 @@ public class EntradaSaida{
         return entrada;
     }
     public static double solicitarSalarioBruto() {
+        LimpaConsole.limparTela();
         System.out.println("\n======================================================================================\n"+
         "        Informe o salario *BRUTO*: ");
         Scanner entradaQuatro = new Scanner(System.in);
@@ -80,6 +83,7 @@ public class EntradaSaida{
         return entrada;
     }
     public static boolean recebeValeTransporte(){
+        LimpaConsole.limparTela();
         System.out.println("\n======================================================================================\n"+
             "        Recebe Vale-Transporte?\n        [1] - Sim \n        [2] - Não"+
             "\n======================================================================================\n");
@@ -94,7 +98,7 @@ public class EntradaSaida{
         }while(entrada!=2 && entrada!=1);
 }
     public static void mostrarSalarioLiquido(double salarioLiquido) {
-        System.out.println("        O salário líquido a receber é: R$"+salarioLiquido); 
+        System.out.println("        O salário líquido a receber é: "+NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salarioLiquido)); 
     }
     public static double solicitarValorDesconto() {
         System.out.println("\n======================================================================================\n"+

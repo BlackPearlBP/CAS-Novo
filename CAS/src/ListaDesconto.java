@@ -1,5 +1,7 @@
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ListaDesconto {
     DecimalFormat df = new DecimalFormat("##,###.00");
@@ -79,7 +81,7 @@ public class ListaDesconto {
             }
         }
 
-        System.out.println(("        Soma dos descontos: R$" + (salarioBruto * somaDesconto)));
+        System.out.println(("        Soma dos descontos: " + NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salarioBruto * somaDesconto)));
         return salarioBruto - (salarioBruto * somaDesconto);
     }
 
