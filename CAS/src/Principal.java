@@ -57,6 +57,7 @@ public class Principal {
                                         case 1:
                                             LimpaConsole.limparTela();
                                             u.salarioBruto = EntradaSaida.solicitarSalarioBruto();
+                                            LimpaConsole.limparTela();
                                             listaDesconto.setarValoresDesconto(u.salarioBruto);
                                             salarioLiquido = listaDesconto.somarDesconto(u.salarioBruto);
                                             EntradaSaida.mostrarSalarioLiquido(salarioLiquido);

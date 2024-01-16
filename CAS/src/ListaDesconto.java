@@ -15,13 +15,13 @@ public class ListaDesconto {
 
         Desconto descontos = new Desconto();
         descontos.nome = "FGTS";
+        descontos.valor = 0.08;
         descontos.descricao = "Saiba mais: O desconto do FGTS, ou Fundo de Garantia                         |\n" +
             "|       do Tempo de Serviço, é uma contribuição obrigatória                          |\n" +
             "|       do empregador que visa proteger o trabalhador, oferecendo                    |\n" +
             "|       recursos para situações específicas, como demissão sem                       |\n" +
             "|       justa causa e compra da casa própria.                                        |\n" + 
             "|       Fonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx                     |";
-        descontos.valor = 0.08;
         descontos.ehDescontado = true;
         adicionarDesconto(descontos);
     }
@@ -143,6 +143,7 @@ public class ListaDesconto {
                         }
         }else if(descontos.nome.equals("VT")){
             descontos.ehDescontado=EntradaSaida.recebeValeTransporte();
+            LimpaConsole.limparTela();
 
         }
     }
