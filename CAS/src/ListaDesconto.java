@@ -79,7 +79,7 @@ public class ListaDesconto {
             }
         }
 
-        System.out.println(("\n        Soma dos descontos: R$" + (salarioBruto * somaDesconto)));
+        System.out.println(("        Soma dos descontos: R$" + (salarioBruto * somaDesconto)));
         return salarioBruto - (salarioBruto * somaDesconto);
     }
 
