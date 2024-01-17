@@ -8,6 +8,7 @@ public class ListaUsuarios {
         this.listaDeUsuarios.add(usuario);
         
     }
+
     public boolean verificarUsuario(String nomeDeUsuarioInserido, String senhaInserida,boolean usuarioExistente) {
         for (Usuario u : this.listaDeUsuarios){
             if(u.usuario.equals(nomeDeUsuarioInserido) && u.senha.equals(senhaInserida)){
@@ -45,6 +46,7 @@ public class ListaUsuarios {
         }
         return usuarioExistente;
     }
+    
     public void removerUsuarios(Usuario u){
         this.listaDeUsuarios.remove(u);
     }

@@ -10,11 +10,9 @@ public class ListaDesconto {
 
     public void adicionarDesconto(Desconto descontos) {
         this.descontosCadastrados.add(descontos);
-
     }
 
     public void setarDescontoFgts() {
-
         Desconto descontos = new Desconto();
         descontos.nome = "FGTS";
         descontos.valor = 0.08;
@@ -39,6 +37,7 @@ public class ListaDesconto {
             "|       tributaria/tributos/IRRF                                                     |";
         adicionarDesconto(descontos);
     }
+
     public void setarDescontoInss() {
         Desconto descontos = new Desconto();
         descontos.nome = "INSS";
@@ -49,6 +48,7 @@ public class ListaDesconto {
             "|       Fonte: www.gov.br/inss/pt-br/saiba-mais                                      |";
         adicionarDesconto(descontos);
     }
+    
     public void setarDescontoVt() {
         Desconto descontos = new Desconto();
         descontos.nome = "VT";
