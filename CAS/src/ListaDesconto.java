@@ -114,7 +114,9 @@ public class ListaDesconto {
                     descontos.nome+"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
             }
         }
+        
         System.out.println(mostrarTodosDescontos);
+        
     }
 
     public String mostrarDescontos() {
