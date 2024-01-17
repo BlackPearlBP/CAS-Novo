@@ -65,8 +65,6 @@ public class ListaDesconto {
     public double somarDesconto(double salarioBruto) {
         double somaDesconto = 0;
         LimpaConsole.limparTela();
-        EntradaSaida.mostrarAlerta(mostrarDescontosCalculadora(salarioBruto));
-
         for (Desconto descontos : this.descontosCadastrados) {
             if (!descontos.nome.equals("VT")) {
                 somaDesconto += descontos.valor;
@@ -75,7 +73,7 @@ public class ListaDesconto {
                 somaDesconto += descontos.valor;
             }
         }
-
+        mostrarDescontosCalculadora(salarioBruto);
         System.out.println(("        Soma dos descontos: " + NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salarioBruto * somaDesconto)));
         return salarioBruto - (salarioBruto * somaDesconto);
     }
@@ -97,18 +95,23 @@ public class ListaDesconto {
         return msg;
     }
 
-    public String mostrarDescontosCalculadora(double salario) {
+    public void mostrarDescontosCalculadora(double salario) {
         String mostrarTodosDescontos="";
         for (Desconto descontos : this.descontosCadastrados) {
-            if(descontos.nome.equals("VT")&&descontos.ehDescontado)
-                mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
-                    descontos.nome+"\n\n        Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
-            else{
+            if(descontos.nome.equals("VT")){
+                if(descontos.ehDescontado){
+                    mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
+                        descontos.nome+"\n\n        Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
+                }else{
+                    mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
+                        descontos.nome+"\n\n        Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: Não é descontado" + "\n======================================================================================\n";
+                }
+            }else{
                 mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
                     descontos.nome+"\n\n        Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
             }
         }
-        return mostrarTodosDescontos;
+        System.out.println(mostrarTodosDescontos);
     }
 
     public String mostrarDescontos() {
