@@ -153,6 +153,7 @@ public class Principal {
                                         }
                                         EntradaSaida.mostrarAlerta(mensagem);
                                         opcaoSairExclusao = EntradaSaida.verificarExclusao();
+                                        LimpaConsole.limparTela();
                                     } while (opcaoSairExclusao);
                                     break;
                             }
