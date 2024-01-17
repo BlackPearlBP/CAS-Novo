@@ -21,17 +21,43 @@ public class EntradaSaida{
     }
 
     public static String cadastrarDadosUsuario(String msg){
-        System.out.println("        Digite "+msg);
-        Scanner entradaDois = new Scanner(System.in);
-        String entrada = entradaDois.nextLine();
-        return entrada; 
+        boolean ehNulo=true;
+        do{
+            
+            System.out.println("        Digite "+msg);
+            Scanner entradaDois = new Scanner(System.in);
+            String entrada = entradaDois.nextLine();
+            if(!entrada.equals("")){
+                return entrada;
+            }else{
+                System.out.println("        Você tende a digitar algo...");
+                ehNulo= true;
+                Principal.wait(800);
+                LimpaConsole.limparTela();
+            }
+            
+        }while(ehNulo);
+        return null; 
     }
     
     public static String solicitarDados(String msg){
-        System.out.println("        Digite "+msg);
-        Scanner entradaTres = new Scanner(System.in);
-        String entrada = entradaTres.nextLine();
-        return entrada;
+        boolean ehNulo=true;
+        do{
+            
+            System.out.println("        Digite "+msg);
+            Scanner entradaTres = new Scanner(System.in);
+            String entrada = entradaTres.nextLine();
+            if(!entrada.equals("")){
+                return entrada;
+            }else{
+                System.out.println("        Você tende a digitar algo...");
+                ehNulo= true;
+                Principal.wait(800);
+                LimpaConsole.limparTela();
+            }
+            
+        }while(ehNulo);
+        return null;
     }
 
     public static double solicitarSalarioBruto() {
@@ -109,12 +135,31 @@ public class EntradaSaida{
     }
 
     public static double solicitarValorDesconto() {
-        System.out.println("\n======================================================================================\n"+
-            "        Digite o novo valor do desconto: (Utilize virgula ',')" + 
-            "\n======================================================================================\n");
-        Scanner entradaDez = new Scanner(System.in);
-        double entrada = entradaDez.nextDouble();
-        return entrada;
+        boolean valorCorreto = false;
+        LimpaConsole.limparTela();
+        double entrada = 0;
+            do{
+                try{
+                    Principal.wait(1000);
+                    LimpaConsole.limparTela();
+                    System.out.println("\n======================================================================================\n"+
+                    "        Digite o novo valor do desconto: (Utilize virgula ',')" + 
+                    "\n======================================================================================\n");
+                    Scanner entradaDez = new Scanner(System.in);
+                    entrada = entradaDez.nextDouble();
+                    valorCorreto = true;
+                }catch (Exception e){
+                    Principal.wait(1000);
+                    LimpaConsole.limparTela();
+                    System.out.println("\n======================================================================================\n" + 
+                    "|        Algo deu errado, tente novamente!                                           |" + 
+                    "\n======================================================================================\n");
+                    
+                    valorCorreto = false;
+                }
+            }while (valorCorreto != true);
+            return entrada;
+        
     }
 
      public static boolean verificarExclusao() {

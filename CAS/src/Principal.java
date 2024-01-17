@@ -155,7 +155,7 @@ public class Principal {
                                         opcaoSairExclusao = EntradaSaida.verificarExclusao();
                                         LimpaConsole.limparTela();
                                     } while (opcaoSairExclusao);
-                                    break;
+                                    break;                                
                             }
                         } while (opcaoMenuAdmin != 4);
                         LimpaConsole.limparTela();
