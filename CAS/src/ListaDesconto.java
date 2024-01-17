@@ -96,7 +96,7 @@ public class ListaDesconto {
     }
 
     public void mostrarDescontosCalculadora(double salario) {
-        String mostrarTodosDescontos="";
+        String mostrarTodosDescontos=new String();
         for (Desconto descontos : this.descontosCadastrados) {
             if(descontos.nome.equals("VT")){
                 if(descontos.ehDescontado){
