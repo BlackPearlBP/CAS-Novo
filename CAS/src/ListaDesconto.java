@@ -101,14 +101,14 @@ public class ListaDesconto {
             if(descontos.nome.equals("VT")){
                 if(descontos.ehDescontado){
                     mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
-                        descontos.nome+"\n\n        Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
+                        descontos.nome+"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
                 }else{
                     mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
-                        descontos.nome+"\n\n        Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: Não é descontado" + "\n======================================================================================\n";
+                        descontos.nome+"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: Não é descontado" + "\n======================================================================================\n";
                 }
             }else{
                 mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
-                    descontos.nome+"\n\n        Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
+                    descontos.nome+"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
             }
         }
         System.out.println(mostrarTodosDescontos);
