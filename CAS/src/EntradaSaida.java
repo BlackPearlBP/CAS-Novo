@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class EntradaSaida{
     public static Scanner entradaUser = new Scanner(System.in);
     
-
     public static int menuInicial(){
         LimpaConsole.limparTela();
         //String[] opcoes = {"1 - Login Usuário","2 - Cadastrar Usuário","3 - Login Admin","4 - Sair"}; 
@@ -38,19 +37,25 @@ public class EntradaSaida{
     public static double solicitarSalarioBruto() {
         boolean valorCorreto = false;
         LimpaConsole.limparTela();
-        System.out.println("        Informe o salario *BRUTO*: ");
         double entrada = 0;
         do{
             try{
+                Principal.wait(1000);
+                LimpaConsole.limparTela();
+                System.out.println("        Informe o salario *BRUTO*: ");
                 Scanner entradaQuatro = new Scanner(System.in);
                 entrada = entradaQuatro.nextDouble();
                 valorCorreto = true;
             }catch (Exception e){
-                System.out.println("Você digitou algo errado. Tente novamente.");
+                Principal.wait(1000);
+                LimpaConsole.limparTela();
+                System.out.println("\n======================================================================================\n" + 
+                "|        Algo deu errado, tente novamente!                                           |" + 
+                "\n======================================================================================\n");
+                
                 valorCorreto = false;
             }
         }while (valorCorreto != true);
-        //System.out.println("\n======================================================================================\n");
         return entrada;
     }
 
@@ -111,7 +116,7 @@ public class EntradaSaida{
         double entrada = entradaDez.nextDouble();
         return entrada;
     }
-    
+
      public static boolean verificarExclusao() {
         System.out.println("\n======================================================================================\n"+
             "        Continuar excluindo? \n        [1] - Sim        [2] - Não"+"\n======================================================================================\n");
