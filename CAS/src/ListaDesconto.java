@@ -146,10 +146,10 @@ public class ListaDesconto {
                     descontos.ehDescontado = true;
             }
         }else if(descontos.nome.equals("IRRF")){
-            if(salarioBruto < 1903.99){
+            if(salarioBruto < 2111.99){
                 descontos.valor = 0;
                 descontos.ehDescontado = false;
-            }else if(salarioBruto > 1903.99 && salarioBruto <= 2826.65){
+            }else if(salarioBruto > 2111.99 && salarioBruto <= 2826.65){
                 descontos.valor = 0.075;
                 descontos.ehDescontado = true;
                 }else if(salarioBruto > 2826.66 && salarioBruto <= 3751.05){
