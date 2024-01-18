@@ -71,11 +71,22 @@ public class EntradaSaida{
                 System.out.println("        Informe o salario *BRUTO*: ");
                 Scanner entradaQuatro = new Scanner(System.in);
                 entrada = entradaQuatro.nextDouble();
-                valorCorreto = true;
+                if(entrada<0){
+                    Principal.wait(1000);
+                    LimpaConsole.limparTela();
+                    EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
+                    "|        \"Você não pode ter um salário negativo...                                  |" + 
+                    "\n======================================================================================\n");
+                    valorCorreto = false;
+                    Principal.wait(1000);
+                    LimpaConsole.limparTela();
+                }else{
+                    valorCorreto = true;
+                }
             }catch (Exception e){
                 Principal.wait(1000);
                 LimpaConsole.limparTela();
-                System.out.println("\n======================================================================================\n" + 
+                EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
                 "|        Algo deu errado, tente novamente!                                           |" + 
                 "\n======================================================================================\n");
                 
@@ -147,7 +158,18 @@ public class EntradaSaida{
                     "\n======================================================================================\n");
                     Scanner entradaDez = new Scanner(System.in);
                     entrada = entradaDez.nextDouble();
-                    valorCorreto = true;
+                    if(entrada<0){
+                        Principal.wait(1000);
+                        LimpaConsole.limparTela();
+                        EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
+                        "|        Você não pode descontar um numero negativo...                               |" + 
+                        "\n======================================================================================\n");
+                        valorCorreto = false;
+                        Principal.wait(1000);
+                        LimpaConsole.limparTela();
+                    }else{
+                        valorCorreto = true;
+                    }
                 }catch (Exception e){
                     Principal.wait(1000);
                     LimpaConsole.limparTela();
