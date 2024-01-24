@@ -9,9 +9,9 @@ public class EntradaSaida{
         boolean valorCorreto=false;
         int entrada=0;
         do{
-        Principal.wait(1000);
+        Principal.wait(500);
         LimpaConsole.limparTela();
-        //String[] opcoes = {"1 - Login Usuário","2 - Cadastrar Usuário","3 - Login Admin","4 - Sair"}; 
+        System.out.println("\n ██████╗ █████╗ ███████╗\n██╔════╝██╔══██╗██╔════╝\n██║     ███████║███████╗\n██║     ██╔══██║╚════██║\n╚██████╗██║  ██║███████║\n╚═════╝╚═╝  ╚═╝╚══════"); 
         System.out.println("\n======================================================================================\n" +  
                     "|        Escolha uma opção:                                                          |" + 
                     "\n======================================================================================");
@@ -33,7 +33,7 @@ public class EntradaSaida{
                     valorCorreto=true;
                 }
             }catch(Exception e){
-                Principal.wait(1000);
+                Principal.wait(500);
                 LimpaConsole.limparTela();
                 mostrarAlerta("\n======================================================================================\n" + 
                 "|        \"Opção inválida...                                                         |" + 

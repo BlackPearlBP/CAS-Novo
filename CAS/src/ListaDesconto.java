@@ -96,9 +96,7 @@ public class ListaDesconto {
     }
 
     public void mostrarDescontosCalculadora(double salario) {
-        for(int clear = 0; clear < 1000; clear++) {
-            System.out.println("\b") ;
-        }
+        LimpaConsole.limparTela();
         String mostrarTodosDescontos=new String();
         for (Desconto descontos : this.descontosCadastrados) {
             if(descontos.nome.equals("VT")){
