@@ -11,7 +11,16 @@ public class EntradaSaida{
         do{
         Principal.wait(500);
         LimpaConsole.limparTela();
-        System.out.println("\n ██████╗ █████╗ ███████╗\n██╔════╝██╔══██╗██╔════╝\n██║     ███████║███████╗\n██║     ██╔══██║╚════██║\n╚██████╗██║  ██║███████║\n╚═════╝╚═╝  ╚═╝╚══════"); 
+        String espacos = "";
+        for (int i = 0; i < 31; i++) {
+            espacos += " ";
+        }
+        System.out.println(espacos + " ██████╗ █████╗ ███████╗"); 
+        System.out.println(espacos + "██╔════╝██╔══██╗██╔════╝");
+        System.out.println(espacos + "██║     ███████║███████╗");
+        System.out.println(espacos + "██║     ██╔══██║╚════██║");
+        System.out.println(espacos + "╚██████╗██║  ██║███████║");
+        System.out.println(espacos + "╚═════╝╚═╝  ╚═╝╚══════");
         System.out.println("\n======================================================================================\n" +  
                     "|        Escolha uma opção:                                                          |" + 
                     "\n======================================================================================");
