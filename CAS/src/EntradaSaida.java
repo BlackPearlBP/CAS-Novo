@@ -6,6 +6,10 @@ public class EntradaSaida{
     public static Scanner entradaUser = new Scanner(System.in);
     
     public static int menuInicial(){
+        boolean valorCorreto=false;
+        int entrada=0;
+        do{
+        Principal.wait(1000);
         LimpaConsole.limparTela();
         //String[] opcoes = {"1 - Login Usuário","2 - Cadastrar Usuário","3 - Login Admin","4 - Sair"}; 
         System.out.println("\n======================================================================================\n" +  
@@ -17,7 +21,28 @@ public class EntradaSaida{
             "|        [3] - Login Admin                                                           |\n" + 
             "|        [4] - Sair                                                                  |\n" + 
             "======================================================================================");
-        return entradaUser.nextInt();
+            try{
+                Scanner entradaQuatro = new Scanner(System.in);
+                entrada = entradaQuatro.nextInt();
+                if(entrada<=0|| entrada>11){
+                    mostrarAlerta("\n======================================================================================\n" + 
+                "|        \"Opção inválida...                                                         |" + 
+                "\n======================================================================================\n");
+                    valorCorreto=false;
+                }else{
+                    valorCorreto=true;
+                }
+            }catch(Exception e){
+                Principal.wait(1000);
+                LimpaConsole.limparTela();
+                mostrarAlerta("\n======================================================================================\n" + 
+                "|        \"Opção inválida...                                                         |" + 
+                "\n======================================================================================\n");
+                valorCorreto=false;
+            }
+    
+        }while(!valorCorreto);
+    return entrada;
     }
 
     public static String cadastrarDadosUsuario(String msg){
@@ -97,17 +122,48 @@ public class EntradaSaida{
     }
 
     public static int menuAdmin() {
-        System.out.println("\n======================================================================================\n" +  
-                    "|        Escolha uma opção:                                                          |" + 
-                    "\n======================================================================================");
-        System.out.println("\n======================================================================================\n" + 
-            "|        [1] - Alterar descontos                                                     |\n" + 
-            "|        [2] - Alterar login administrador                                           |\n" + 
-            "|        [3] - Excluir usuarios                                                      |\n" + 
-            "|        [4] - Voltar                                                                |" + 
-            "\n======================================================================================\n");
-        Scanner entradaAdmin = new Scanner(System.in);
-        int entrada = entradaAdmin.nextInt();
+        int entrada=0;
+        boolean valorCorreto=false;
+        do{
+            
+            LimpaConsole.limparTela();
+            System.out.println("\n======================================================================================\n" +  
+                        "|        Escolha uma opção:                                                          |" + 
+                        "\n======================================================================================");
+            System.out.println("\n======================================================================================\n" + 
+                "|        [1] - Alterar descontos                                                     |\n" + 
+                "|        [2] - Alterar login administrador                                           |\n" + 
+                "|        [3] - Excluir usuarios                                                      |\n" + 
+                "|        [4] - Voltar                                                                |" + 
+                "\n======================================================================================");
+            try{
+                Scanner entradaQuatro = new Scanner(System.in);
+                entrada = entradaQuatro.nextInt();
+                if(entrada<=0 || entrada>11){
+                    Principal.wait(1000);
+                    LimpaConsole.limparTela();
+                    mostrarAlerta("\n======================================================================================\n" + 
+                        "|        \"Opção inválida...                                                         |" + 
+                        "\n======================================================================================\n");
+                    Principal.wait(1000);
+                    LimpaConsole.limparTela();
+                    valorCorreto=false;
+                }else{
+                    valorCorreto=true;
+                }
+            }catch(Exception e){
+                Principal.wait(1000);
+                LimpaConsole.limparTela();
+                mostrarAlerta("\n======================================================================================\n" + 
+                    "|        \"Opção inválida...                                                         |" + 
+                    "\n======================================================================================\n");
+                Principal.wait(1000);
+                LimpaConsole.limparTela();
+
+                valorCorreto=false;
+            }
+    
+        }while(!valorCorreto);
         return entrada;
     }
 
