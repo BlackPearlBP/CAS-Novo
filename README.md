@@ -1,5 +1,5 @@
 # CAS-Novo
-![Mês do Lançamento](https://img.shields.io/badge/release%20date-january-blue) ![Versão](https://img.shields.io/badge/version-0.9.1%2025.01.2024-green) ![Versão](https://img.shields.io/badge/JDK%version-1.8.0%351-red)
+![Mês do Lançamento](https://img.shields.io/badge/release%20date-january-blue) ![Versão](https://img.shields.io/badge/version-0.9.1%2025.01.2024-green) ![Versão JDK](https://img.shields.io/badge/JDK%20version-1.8.0_351-red)
 
 Uma calculadora salarial com base legal, cujo seu objetivo é calcular e informar os descontos realizados na sua folha de pagamento.
 
