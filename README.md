@@ -1,4 +1,6 @@
 # CAS-Novo
+https://img.shields.io/badge/release%20date-january-blue
+
 Nova versão do CAS
 
 Funcionalidades do programa (25/01/2024 - latest): 
