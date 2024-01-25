@@ -1,16 +1,7 @@
 # CAS-Novo
 ![Mês do Lançamento](https://img.shields.io/badge/release%20date-january-blue)
 
-Nova versão do CAS
-
-Funcionalidades do programa (25/01/2024 - latest): 
-- Criação de Usuário;
-- Login do Usuário;
-- Login do Administrador padrão com possibilidade de alteração;
-- Alterar login de Administrador e descontos; 
-- Solicitação de salário bruto;
-- Switches para seleção de descontos;
-- Cálculo, devolvendo o salario liquido;
+Uma calculadora salarial com base legal, cujo seu objetivo é calcular e informar os descontos realizados na sua folha de pagamento.
 
 # :hammer: Funcionalidades do projeto
 
@@ -33,10 +24,10 @@ Versão 0.0.1 17.01.2024:
         para modificar esse valor, na opção "Alterar descontos" é necessário realizar a pesquisa do desconto pela sua sigla 
         e inserir o novo valor no padrão de porcentagem "0,00"; (8% sendo 0,08, nesse caso).
             Siglas dos descontos (Não utilizar as aspas!): 
-            * "VT" - vale transporte;
-            * "IRRF" - imposto de renda retido na fonte;
-            * "INSS" - desconto do instituto nacional do seguro social;
-            * "FGTS" - fundo de garantia do tempo de serviço;
+            - `VT`: Vale Transporte;
+            - `IRRF`: Imposto de Renda Retido na Fonte;
+            - `INSS`: Desconto do Instituto Nacional do Seguro Social;
+            - `FGTS`: Fundo de Garantia do Tempo de Serviço;
    \>1.3.2 - Alterar login Administrador - Essa tela apresenta a possibilidade da alteração do usuário e senha padrões.
             Usuário (padrão): admin
             Senha (padrão): admin
