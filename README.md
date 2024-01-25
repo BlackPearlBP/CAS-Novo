@@ -38,5 +38,5 @@ Uma calculadora salarial com base legal, cujo seu objetivo é calcular e informa
 # :blond_haired_man: Contribuidores:
 
 | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/92534443?v=4" width=115><br><sub>Brunno Pedro de Oliveira</sub>](https://github.com/BlackPearlBP) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/143548075?v=4" width=115><br><sub>Gabriel Campos Fregatti Reis</sub>](https://github.com/Freegrattis) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/92793218?v=4" width=115><br><sub>Gabriel Lucas Soares</sub>](https://github.com/FlashySniper) |
-| :---: | :---: | :---: |
+| :-----: | :-----: | :-----: |
 
