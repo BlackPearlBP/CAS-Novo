@@ -21,11 +21,12 @@ Uma calculadora salarial com base legal, cujo seu objetivo é calcular e informa
  
 - Tela de Login Administrativo:  Nessa tela estarão presentes as opções onde sejam realizadas modificações nos valores padrões dos descontos.
 
-- Alterar Descontos: Os descontos estão dispostos tendo como base de cálculo a sua porcentagem. Ex: O desconto real do FGTS é 8%, para modificar esse valor, na opção "Alterar descontos" é necessário realizar a pesquisa do desconto pela sua sigla e inserir o novo valor no padrão de porcentagem "0,00"; (8% sendo 0,08, nesse caso). Siglas dos descontos (Não utilizar as aspas!): 
-            * `VT`: Vale Transporte;
-            * `IRRF`: Imposto de Renda Retido na Fonte;
-            * `INSS`: Desconto do Instituto Nacional do Seguro Social;
-            * `FGTS`: Fundo de Garantia do Tempo de Serviço;
+- Alterar Descontos: Os descontos estão dispostos tendo como base de cálculo a sua porcentagem. Ex: O desconto real do FGTS é 8%, para modificar esse valor, na opção "Alterar descontos" é necessário realizar a pesquisa do desconto pela sua sigla e inserir o novo valor no padrão de porcentagem "0,00"; (8% sendo 0,08, nesse caso). Siglas dos descontos (Não utilizar as aspas!):
+- <--!ts-->
+            -- `VT`: Vale Transporte;
+            -- `IRRF`: Imposto de Renda Retido na Fonte;
+            -- `INSS`: Desconto do Instituto Nacional do Seguro Social;
+            -- `FGTS`: Fundo de Garantia do Tempo de Serviço;
   
 - Alterar login Administrador -> Essa tela apresenta a possibilidade da alteração do usuário e senha padrões.
             Usuário (padrão): admin
