@@ -1,5 +1,5 @@
 # CAS-Novo
-![Mês do Lançamento](https://img.shields.io/badge/release%20date-january-blue)
+![Mês do Lançamento](https://img.shields.io/badge/release%20date-january-blue) ![Versão](https://img.shields.io/badge/version-0.0.1%2017.01.2024-green)
 
 Uma calculadora salarial com base legal, cujo seu objetivo é calcular e informar os descontos realizados na sua folha de pagamento.
 
@@ -33,4 +33,7 @@ Versão 0.0.1 17.01.2024:
             Senha (padrão): admin
    \>1.3.3 - Excluir usuários - Essa tela reseta toda parte do usuário, excluindo todos os usuários cadastrados e zerando seus valores.
 
-Changelog:
+# :blond_haired_man: Contribuidores:
+
+| [<img loading="lazy" src="[https://avatars.githubusercontent.com/u/37356058?v=4](https://avatars.githubusercontent.com/u/92534443?v=4)" width=115><br><sub>Brunno Pedro de Oliveira</sub>](https://github.com/BlackPearlBP) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/143548075?v=4" width=115><br><sub>Gabriel Campos Fregatti Reis</sub>](https://github.com/Freegrattis) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/92793218?v=4" width=115><br><sub>Gabriel Lucas Soares</sub>](https://github.com/FlashySniper) |
+
