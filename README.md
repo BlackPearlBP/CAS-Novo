@@ -9,11 +9,10 @@ Funcionalidades do programa (25/01/2024 - latest):
 - Login do Administrador padrão com possibilidade de alteração;
 - Alterar login de Administrador e descontos; 
 - Solicitação de salário bruto;
-- Questionamento: é CLT? -> Caso sim, automaticamente faz o cálculo de INSS e IRRF;
 - Switches para seleção de descontos;
 - Cálculo, devolvendo o salario liquido;
 
-\\ Como funciona? \\ 
+# :hammer: Funcionalidades do projeto
 
 Versão 0.0.1 17.01.2024:
 1 - Tela Inicial - Imprime opções disponíveis na tela: login de usuário, cadastro de usuário, login como admin e sair do programa;
