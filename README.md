@@ -19,6 +19,14 @@ Uma calculadora salarial com base legal, cujo seu objetivo é calcular e informa
             1212121
             121212
             11212121
+              11212121
+              11212121
+              11212121
+              11212121
+              11212121
+              11212121
+              11212121
+  
   
 - Tela de Resultados -> Será impresso na tela um menu no qual o salário bruto possa ser consultado, em conjunto do salário líquido e seus respectivos descontos. Ainda na tela de resultados, quando a opção descontos forem selecionadas, será possível selecionar algum desconto e receber uma informação prévia sobre ele (Não presente nessa versão). Ainda nessa tela serão impressas as opções de calcular o salário novamente ou voltar à tela inicial.
 
