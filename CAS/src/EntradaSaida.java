@@ -15,12 +15,12 @@ public class EntradaSaida{
         for (int i = 0; i < 31; i++) {
             espacos += " ";
         }
-        System.out.println(espacos + " ██████╗ █████╗ ███████╗"); 
+        System.out.println(espacos + ConsoleColors.CYAN_BRIGHT + " ██████╗ █████╗ ███████╗"); 
         System.out.println(espacos + "██╔════╝██╔══██╗██╔════╝");
         System.out.println(espacos + "██║     ███████║███████╗");
         System.out.println(espacos + "██║     ██╔══██║╚════██║");
         System.out.println(espacos + "╚██████╗██║  ██║███████║");
-        System.out.println(espacos + "╚═════╝╚═╝  ╚═╝╚══════");
+        System.out.println(espacos + "╚═════╝╚═╝  ╚═╝╚══════" + ConsoleColors.RESET);
         System.out.println("\n======================================================================================\n" +  
                     "|        Escolha uma opção:                                                          |" + 
                     "\n======================================================================================");
@@ -33,10 +33,10 @@ public class EntradaSaida{
             try{
                 Scanner entradaQuatro = new Scanner(System.in);
                 entrada = entradaQuatro.nextInt();
-                if(entrada<=0|| entrada>11){
-                    mostrarAlerta("\n======================================================================================\n" + 
-                "|        \"Opção inválida...                                                         |" + 
-                "\n======================================================================================\n");
+                if(entrada<=0|| entrada>4){
+                    mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
+                "|          Opção inválida...                                                         |" + 
+                "\n======================================================================================\n" + ConsoleColors.RESET);
                     valorCorreto=false;
                 }else{
                     valorCorreto=true;
@@ -44,9 +44,9 @@ public class EntradaSaida{
             }catch(Exception e){
                 Principal.wait(500);
                 LimpaConsole.limparTela();
-                mostrarAlerta("\n======================================================================================\n" + 
-                "|        \"Opção inválida...                                                         |" + 
-                "\n======================================================================================\n");
+                mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
+                "|        Opção inválida...                                                           |" + 
+                "\n======================================================================================\n" + ConsoleColors.RESET);
                 valorCorreto=false;
             }
     
@@ -64,7 +64,7 @@ public class EntradaSaida{
             if(!entrada.equals("")){
                 return entrada;
             }else{
-                System.out.println("        Você tende a digitar algo...");
+                System.out.println(ConsoleColors.RED_BRIGHT + "        Você deve digitar alguma coisa..." + ConsoleColors.RESET);
                 ehNulo= true;
                 Principal.wait(800);
                 LimpaConsole.limparTela();
@@ -84,7 +84,7 @@ public class EntradaSaida{
             if(!entrada.equals("")){
                 return entrada;
             }else{
-                System.out.println("        Você tende a digitar algo...");
+                System.out.println(ConsoleColors.RED_BRIGHT + "        Você deve digitar alguma coisa..." + ConsoleColors.RESET);
                 ehNulo= true;
                 Principal.wait(800);
                 LimpaConsole.limparTela();
@@ -108,9 +108,9 @@ public class EntradaSaida{
                 if(entrada<0){
                     Principal.wait(1000);
                     LimpaConsole.limparTela();
-                    EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
+                    EntradaSaida.mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
                     "|        \"Você não pode ter um salário negativo...                                  |" + 
-                    "\n======================================================================================\n");
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                     valorCorreto = false;
                     Principal.wait(1000);
                     LimpaConsole.limparTela();
@@ -120,9 +120,9 @@ public class EntradaSaida{
             }catch (Exception e){
                 Principal.wait(1000);
                 LimpaConsole.limparTela();
-                EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
+                EntradaSaida.mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
                 "|        Algo deu errado, tente novamente!                                           |" + 
-                "\n======================================================================================\n");
+                "\n======================================================================================\n" + ConsoleColors.RESET);
                 
                 valorCorreto = false;
             }
@@ -151,9 +151,9 @@ public class EntradaSaida{
                 if(entrada<=0 || entrada>11){
                     Principal.wait(1000);
                     LimpaConsole.limparTela();
-                    mostrarAlerta("\n======================================================================================\n" + 
-                        "|        \"Opção inválida...                                                         |" + 
-                        "\n======================================================================================\n");
+                    mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
+                        "|          Opção inválida...                                                         |" + 
+                        "\n======================================================================================\n" + ConsoleColors.RESET);
                     Principal.wait(1000);
                     LimpaConsole.limparTela();
                     valorCorreto=false;
@@ -163,9 +163,9 @@ public class EntradaSaida{
             }catch(Exception e){
                 Principal.wait(1000);
                 LimpaConsole.limparTela();
-                mostrarAlerta("\n======================================================================================\n" + 
-                    "|        \"Opção inválida...                                                         |" + 
-                    "\n======================================================================================\n");
+                mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
+                    "|          Opção inválida...                                                         |" + 
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                 Principal.wait(1000);
                 LimpaConsole.limparTela();
 
@@ -206,7 +206,7 @@ public class EntradaSaida{
     }
 
     public static void mostrarSalarioLiquido(double salarioLiquido) {
-        System.out.println("        O salário líquido a receber é: "+NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salarioLiquido));
+        System.out.println("        O salário líquido a receber é: " + ConsoleColors.GREEN_BRIGHT + NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salarioLiquido) + ConsoleColors.RESET);
         
     }
 
@@ -226,9 +226,9 @@ public class EntradaSaida{
                     if(entrada<0){
                         Principal.wait(1000);
                         LimpaConsole.limparTela();
-                        EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
+                        EntradaSaida.mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
                         "|        Você não pode descontar um numero negativo...                               |" + 
-                        "\n======================================================================================\n");
+                        "\n======================================================================================\n" + ConsoleColors.RESET);
                         valorCorreto = false;
                         Principal.wait(1000);
                         LimpaConsole.limparTela();
@@ -238,9 +238,9 @@ public class EntradaSaida{
                 }catch (Exception e){
                     Principal.wait(1000);
                     LimpaConsole.limparTela();
-                    System.out.println("\n======================================================================================\n" + 
+                    System.out.println(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
                     "|        Algo deu errado, tente novamente!                                           |" + 
-                    "\n======================================================================================\n");
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                     
                     valorCorreto = false;
                 }

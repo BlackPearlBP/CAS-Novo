@@ -6,14 +6,14 @@ public class Admin {
     
     public boolean verificarAdmin(String usuarioAdmin, String senhaAdmin) {
         if((usuario.equals(usuarioAdmin)) && (senha.equals(senhaAdmin))){
-                System.out.println("\n======================================================================================\n" +  
+                System.out.println(ConsoleColors.CYAN_BRIGHT + "\n======================================================================================\n" +  
                     "|        Entrou como administrador                                                   |" + 
-                    "\n======================================================================================\n");
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                 return true;
         }else{
-                System.out.println("\n======================================================================================\n" + 
+                System.out.println(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
                     "|        Não foi possivel entrar como administrador                                  |" + 
-                    "\n======================================================================================\n");
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                 return false;
         }
     }       

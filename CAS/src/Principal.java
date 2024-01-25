@@ -53,7 +53,7 @@ public class Principal {
                     if (usuarioExistente) {
                         for (Usuario u : listaUsuarios.listaDeUsuarios) {
                             if (u.usuario.equals(usuarioAuxiliarString)) {
-                                System.out.println("        Bem-vindo, " + u.usuario + "!");//enqudrar
+                                System.out.println("        Bem-vindo, " + u.usuario + "!");
                                 do {
                                     
                                     opcaoMenuUsuario = EntradaSaida.menuTelaUsuario();
@@ -73,9 +73,9 @@ public class Principal {
                             }
                         }
                     }else{
-                        EntradaSaida.mostrarAlerta("\n======================================================================================\n" + 
+                        EntradaSaida.mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
                             "|        Usuário ou senha inválida                                                   |" + 
-                            "\n======================================================================================\n");
+                            "\n======================================================================================\n" + ConsoleColors.RESET);
                         wait(1000);
                         LimpaConsole.limparTela();
                     }
@@ -90,15 +90,15 @@ public class Principal {
                     if(!adicionado){
                         listaUsuarios.adicionarUsuario(u,u.usuario);
                         LimpaConsole.limparTela();
-                        EntradaSaida.mostrarAlerta("\n======================================================================================\n" +  
+                        EntradaSaida.mostrarAlerta(ConsoleColors.GREEN_BRIGHT + "\n======================================================================================\n" +  
                         "|        Cadastro realizado!                                                         |" + 
-                        "\n======================================================================================\n");
+                        "\n======================================================================================\n" + ConsoleColors.RESET);
                         wait(1000);
                     }else{
                         LimpaConsole.limparTela();
-                        EntradaSaida.mostrarAlerta("\n======================================================================================\n" +  
+                        EntradaSaida.mostrarAlerta(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" +  
                         "|        Cadastro não foi realizado! :(                                              |" + 
-                        "\n======================================================================================\n");
+                        "\n======================================================================================\n" + ConsoleColors.RESET);
                         wait(1000);
                     }
                     
@@ -142,12 +142,12 @@ public class Principal {
                                     // Excluir usuarios
                                     LimpaConsole.limparTela();
                                     do {
-                                        String mensagem = "Nome não encontrado!";
+                                        String mensagem = ConsoleColors.RED_BRIGHT + "Nome não encontrado!" + ConsoleColors.RESET;
                                         usuarioAuxiliarString = EntradaSaida.cadastrarDadosUsuario("o nome do usuario");
                                         for (Usuario usuario : listaUsuarios.listaDeUsuarios) {
                                             if (usuario.usuario.equals(usuarioAuxiliarString)) {
                                                 listaUsuarios.removerUsuarios(usuario);
-                                                mensagem = "Excluido!";
+                                                mensagem = ConsoleColors.GREEN_BRIGHT + "Excluido!" + ConsoleColors.RESET;
                                                 break;
                                             }
                                         }

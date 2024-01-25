@@ -20,9 +20,10 @@ public class ListaDesconto {
             "|       do Tempo de Serviço, é uma contribuição obrigatória                          |\n" +
             "|       do empregador que visa proteger o trabalhador, oferecendo                    |\n" +
             "|       recursos para situações específicas, como demissão sem                       |\n" +
-            "|       justa causa e compra da casa própria.                                        |\n" + 
+            "|       justa causa e compra da casa própria.                                        |\n" +
+            "|"+ConsoleColors.RED_BRIGHT+"                      NÃO É DESCONTADO DO SALÁRIO!                                  "+ConsoleColors.RESET+"|\n" + 
             "|       Fonte: www.fgts.gov.br/Pages/sobre-fgts/visao-geral.aspx                     |";
-        descontos.ehDescontado = true;
+        descontos.ehDescontado = false;
         adicionarDesconto(descontos);
     }
 
@@ -52,7 +53,7 @@ public class ListaDesconto {
     public void setarDescontoVt() {
         Desconto descontos = new Desconto();
         descontos.nome = "VT";
-        descontos.valor = 0.08;
+        descontos.valor = 0.06;
         descontos.descricao = "Saiba mais: O vale-transporte é um benefício opcional             |\n" +
             "|       que visa subsidiar parcialmente os custos de deslocamento                    |\n" + 
             "|       do trabalhador entre sua residência e local de trabalho,                     |\n" +
@@ -66,29 +67,29 @@ public class ListaDesconto {
         double somaDesconto = 0;
         LimpaConsole.limparTela();
         for (Desconto descontos : this.descontosCadastrados) {
-            if (!descontos.nome.equals("VT")) {
+            if (!descontos.nome.equals("VT") && !descontos.nome.equals("FGTS")) {
                 somaDesconto += descontos.valor;
             }
             if (descontos.nome.equals("VT") && descontos.ehDescontado) {
-                somaDesconto += descontos.valor;
+                somaDesconto += (salarioBruto * descontos.valor);
             }
         }
         mostrarDescontosCalculadora(salarioBruto);
-        System.out.println(("        Soma dos descontos: " + NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salarioBruto * somaDesconto)));
-        return salarioBruto - (salarioBruto * somaDesconto);
+        System.out.println(("        Soma dos descontos: " + ConsoleColors.YELLOW_BRIGHT + NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(somaDesconto)) + ConsoleColors.RESET);
+        return salarioBruto -  somaDesconto;
     }
 
     public String alterarValorDesconto(String nomeDescontoString) {
-        String msg="\n======================================================================================\n" +  
+        String msg= ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" +  
         "|        Desconto não encontrado!                                                    |" + 
-        "\n======================================================================================\n";
+        "\n======================================================================================\n" + ConsoleColors.RESET;
         for (Desconto descontos : this.descontosCadastrados) {
             if (descontos.nome.equals(nomeDescontoString)) {
                 descontos.valor = EntradaSaida.solicitarValorDesconto();
                 
-                msg="\n======================================================================================\n" +  
+                msg= ConsoleColors.GREEN_BRIGHT + "\n======================================================================================\n" +  
                 "|        Alterado!                                                                   |" + 
-                "\n======================================================================================\n";
+                "\n======================================================================================\n" + ConsoleColors.RESET;
                 LimpaConsole.limparTela();
             }
         }
@@ -102,14 +103,17 @@ public class ListaDesconto {
             if(descontos.nome.equals("VT")){
                 if(descontos.ehDescontado){
                     mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
-                        descontos.nome+"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
+                    ConsoleColors.CYAN_BRIGHT + descontos.nome+ ConsoleColors.RESET +"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario * descontos.valor) + "\n======================================================================================\n";
                 }else{
                     mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
-                        descontos.nome+"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: Não é descontado" + "\n======================================================================================\n";
+                    ConsoleColors.CYAN_BRIGHT + descontos.nome+ ConsoleColors.RESET +"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: Não é descontado" + "\n======================================================================================\n";
                 }
+            }else if(descontos.nome.equals("FGTS")){
+                mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
+                    ConsoleColors.CYAN_BRIGHT + descontos.nome+ ConsoleColors.RESET +"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario * descontos.valor) + "\n======================================================================================\n";
             }else{
                 mostrarTodosDescontos+="\n======================================================================================\n                                       Nome: " + 
-                    descontos.nome+"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(salario*descontos.valor) + "\n======================================================================================\n";
+                ConsoleColors.CYAN_BRIGHT + descontos.nome+ ConsoleColors.RESET +"\n\n|       Descrição: " + descontos.descricao+"\n======================================================================================\n" +"        Valor: " +NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(descontos.valor) + "\n======================================================================================\n";
             }
         }
         
@@ -121,43 +125,44 @@ public class ListaDesconto {
         String mostrarTodosDescontos="";
         for (Desconto descontos : this.descontosCadastrados) {
                 mostrarTodosDescontos+="\n======================================================================================\n        Nome: " + 
-                    descontos.nome+"\n        Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor + "\n======================================================================================\n";
+                    ConsoleColors.CYAN_BRIGHT + descontos.nome+ ConsoleColors.RESET +"\n        Descrição: " + descontos.descricao+"\n        Valor: " +descontos.valor + "\n======================================================================================\n";
         }
         return mostrarTodosDescontos;
     }
 
     public void setarValoresDesconto(double salarioBruto) {
+        double salarioSemi = 0;
         for(Desconto descontos:this.descontosCadastrados)
-        
         if(descontos.nome.equals("INSS")){
-            if(salarioBruto <= 1320){
-            descontos.valor = 0.075;
+            if(salarioBruto <= 1412){
+            descontos.valor = (salarioBruto * 0.075);
             descontos.ehDescontado = true;
-            }else if(salarioBruto > 1320.01 && salarioBruto <= 2571.29){
-                descontos.valor = 0.09;
+            }else if(salarioBruto > 1412.01 && salarioBruto <= 2668.68){
+                descontos.valor = ((salarioBruto - 1412)*0.09)+(1412 * 0.075);
                 descontos.ehDescontado = true;
-            }else if(salarioBruto > 2571.3 && salarioBruto <= 3856.94){
-                    descontos.valor = 0.12;
+            }else if(salarioBruto > 2669.69 && salarioBruto <= 4000.03){
+                    descontos.valor = ((salarioBruto - 2669.69)*0.12)+((2668.68 - 1412.01)*0.09)+(1412*0.075);
                     descontos.ehDescontado = true;
-            }else if(salarioBruto > 3856.95){
-                    descontos.valor = 0.14;
+            }else if(salarioBruto > 4000.04){
+                    descontos.valor = ((salarioBruto - 4000.04)*0.14)+((2669.69 - 4000.03)*0.12)+((2668.68-1412.01)*0.9)+(1412*0.075);
                     descontos.ehDescontado = true;
             }
+            salarioSemi += descontos.valor;
         }else if(descontos.nome.equals("IRRF")){
             if(salarioBruto < 2111.99){
                 descontos.valor = 0;
                 descontos.ehDescontado = false;
             }else if(salarioBruto > 2111.99 && salarioBruto <= 2826.65){
-                descontos.valor = 0.075;
+                descontos.valor = (((salarioBruto-salarioSemi)*0.075)-158.40);
                 descontos.ehDescontado = true;
                 }else if(salarioBruto > 2826.66 && salarioBruto <= 3751.05){
-                    descontos.valor = 0.15;
+                    descontos.valor = (((salarioBruto-salarioSemi)*0.15)-370.40);
                     descontos.ehDescontado = true;
                     }else if(salarioBruto > 3751.05 && salarioBruto <= 4664.68){
-                        descontos.valor = 0.225;
+                        descontos.valor = (((salarioBruto-salarioSemi)*0.225)-651.73);
                         descontos.ehDescontado = true;
                         }else if(salarioBruto > 4664.68){
-                            descontos.valor = 0.275;
+                            descontos.valor = (((salarioBruto-salarioSemi)*0.275)-884.96);
                             descontos.ehDescontado = true;
                         }
         }else if(descontos.nome.equals("VT")){

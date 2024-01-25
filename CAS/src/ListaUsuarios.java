@@ -12,9 +12,9 @@ public class ListaUsuarios {
     public boolean verificarUsuario(String nomeDeUsuarioInserido, String senhaInserida,boolean usuarioExistente) {
         for (Usuario u : this.listaDeUsuarios){
             if(u.usuario.equals(nomeDeUsuarioInserido) && u.senha.equals(senhaInserida)){
-                System.out.println("\n======================================================================================\n" + 
+                System.out.println(ConsoleColors.GREEN_BRIGHT + "\n======================================================================================\n" + 
                     "|        Usuário válido                                                              |" + 
-                    "\n======================================================================================\n");
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                 usuarioExistente=true;
                 break;
             }
@@ -28,16 +28,16 @@ public class ListaUsuarios {
     public boolean verificaExistenciaUsuario(String nomeDeUsuarioInserido, boolean usuarioExistente) {
         for (Usuario u : this.listaDeUsuarios){
             if(u.usuario.equals(nomeDeUsuarioInserido)){
-                System.out.println("\n======================================================================================\n" + 
+                System.out.println(ConsoleColors.RED_BRIGHT + "\n======================================================================================\n" + 
                     "|        Usuário inválido                                                              |" + 
-                    "\n======================================================================================\n");
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                 usuarioExistente=true;
                 break;
             }
             else{
-                System.out.println("\n======================================================================================\n" + 
+                System.out.println(ConsoleColors.GREEN_BRIGHT + "\n======================================================================================\n" + 
                     "|        Usuário válido                                                              |" + 
-                    "\n======================================================================================\n");
+                    "\n======================================================================================\n" + ConsoleColors.RESET);
                 usuarioExistente=false;
             };
         }
