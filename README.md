@@ -1,5 +1,5 @@
 # CAS-Novo
-https://img.shields.io/badge/release%20date-january-blue
+![Mês do Lançamento](https://img.shields.io/badge/release%20date-january-blue)
 
 Nova versão do CAS
 
